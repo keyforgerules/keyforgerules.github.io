@@ -67,7 +67,7 @@
       var searchElements = [];
       var currentElement = -1;
        jQuery('#search').on('keydown change input', function() {
-        var term = jQuery(this).val().toUpperCase().trim();
+        var term = jQuery(this).val().toUpperCase().trim().replace('AE', 'Æ');
         if (term == lastTerm) return;
 
         var hits = 0;
