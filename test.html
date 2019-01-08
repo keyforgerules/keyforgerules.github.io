@@ -7,117 +7,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="favicon.png" />
-    <link rel="stylesheet" href="https://keyforgerules.github.io/assets/css/style.css?v=398af56e896bd48b2191df2efade6b8dc347b5f4">
-	<script src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://keyforgerules.github.io/assets/css/style.css?v=b0c5947d9696fcca1e2c44dddda5481a9bdb1e81">
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>Keyforge Rules</title>
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
-
-  <h1 id="keyforge-mobile-friendly-rules">Keyforge Mobile Friendly Rules</h1>
-
-<input id='search'>
-<ul id='results'></ul>
-<script>
-var lastTerm = '';
-var searchElements = [];
- jQuery('#search').on('keydown change input', function() {
-	var term = jQuery(this).val().toUpperCase().trim();
-	if (term == lastTerm) return;
-
-	var hits = 0;
-	lastTerm = term;
-	jQuery('#results').empty();
-	searchElements = [];
-	jQuery('.hit').toggleClass('hit', false);
-
-	if (term.length <= 2) {
-		jQuery('.hit').toggleClass('hit', false);
-		return;
-	}
-	
-	function search(item, header) {
-		if (hits > 10) return;
-		if (jQuery(item).text().toUpperCase().indexOf(term) > -1) {
-			var hit = jQuery('<li><a href="#"></a></li>');
-			var text = jQuery(item).text();
-			if (header) {
-				hit.css('font-weight', 'bold');
-			} else {
-				var text = jQuery(item).text();
-				var index = text.indexOf(term);
-				if (index > 40)
-					text = '...' + text.substring(index-20);
-				if (text.length > 100)
-					text = text.substring(0, 100) + '...'
-			}
-			hit.find('a').text(text);
-			hit.data('id', searchElements.length);
-			jQuery('#results').append(hit);
-			searchElements.push(item);
-			jQuery(item).toggleClass('hit', true);
-			hits++;
-		}
-	}
-	jQuery('h1, h2, h3, h4, h5').each(function() { search(this, true); });
-	if (hits > 10) return;
-	jQuery('p').each(function() { search(this, false); });
- });
-
-jQuery('#results').on('click', 'li', function() {
-	var item  = jQuery(searchElements[parseInt(jQuery(this).data('id'))]);
-	if (!item.is('h1,h2,h3,h4,h5'))
-		item = item.prevAll('h1,h2,h3,h4,h5');
-	var offset = item.offset().top;
-	jQuery("html, body").animate({ scrollTop: offset }, 100);
-});
+      <h1>Keyforge Mobile Friendly Rules</h1>
 
 
-window.onscroll = function() {scrollFunction()};
+      
+      <!-- SCroll button -->
+      <div id='tools'>
+        <button class='hidden' onclick="topFunction()" id="backTop" title="Go to top">Top</button>
+        <button class='hidden' onclick="gotoPrev()" id="prev" title="Go to previous">Prev</button>
+        <button class='hidden' onclick="gotoNext()" id="next" title="Go to next">Next</button>
+      </div>
+      <script>
+          window.onscroll = function() {scrollFunction()};
+          function scrollFunction() {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+              jQuery('#backTop').toggleClass('hidden', false);
+            } else {
+              jQuery('#backTop').toggleClass('hidden', true);
+            }
+          }
+          function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+          }
+      </script>
+      <style>
+        #tools {
+          position: fixed;
+          bottom: 20px;
+          right: 30px;
+          z-index: 99;
+          width: 260px;
+          text-align: right;
+        }
+        .hidden { display: none; }
+        #tools button {
+          margin-left: 15px;
+          border: none;
+          outline: none;
+          background-color: #555;
+          color: white;
+          cursor: pointer;
+          padding: 15px;
+          border-radius: 10px;
+          font-size: 18px;
+        }
+      </style>
 
-function scrollFunction() {
-  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-    document.getElementById("backTop").style.display = "block";
-  } else {
-    document.getElementById("backTop").style.display = "none";
-  }
-}
+      <!-- Search area -->
+      <input id='search' placeholder='Search..' autofocus>
+      <div id='searchCount'></div>
+      <ul id='results'></ul>
+      <script>
+      var lastTerm = '';
+      var searchElements = [];
+      var currentElement = -1;
+       jQuery('#search').on('keydown change input', function() {
+        var term = jQuery(this).val().toUpperCase().trim();
+        if (term == lastTerm) return;
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-</script>
-<style>.hit { background-color: #ccffff; }
-#backTop {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: #555;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 18px;
-}
-</style>
+        var hits = 0;
+        currentElement = -1;
+        lastTerm = term;
+        jQuery('#results').empty();
+        searchElements = [];
+        jQuery('.hit').toggleClass('hit', false);
+        jQuery('#searchCount').text('');
+        jQuery('#prev, #next').toggleClass('hidden', true);
+        
+        if (term.length <= 2) {
+          jQuery('.hit').toggleClass('hit', false);
+          return;
+        }
+        
+        function search(item, header) {
+          if (jQuery(item).text().toUpperCase().indexOf(term) > -1) {
+            var hit = jQuery('<li><a href="#"></a></li>');
+            var text = jQuery(item).text();
+            if (header) {
+              hit.css('font-weight', 'bold');
+            } else {
+              var text = jQuery(item).text();
+              var index = text.indexOf(term);
+              if (index > 40)
+                text = '...' + text.substring(index-20);
+              if (text.length > 100)
+                text = text.substring(0, 100) + '...'
+            }
+            hit.find('a').text(text);
+            hit.data('id', searchElements.length);
+            jQuery('#results').append(hit);
+            searchElements.push(item);
+            jQuery(item).toggleClass('hit', true);
+            hits++;
+          }
+        }
+        jQuery('h1, h2, h3, h4, h5').each(function() { search(this, true); });
+        jQuery('p').each(function() { search(this, false); });
+        jQuery('#searchCount').text(hits + ' matches:');
+        
+        jQuery('#prev, #next').toggleClass('hidden', hits == 0);
+       });
 
-<button onclick="topFunction()" id="backTop" title="Go to top">Top</button>
+      function gotoElem(id) {
+          if (id < 0)
+            id = searchElements.length - 1;
+          if (id >= searchElements.length)
+            id = 0;
+          currentElement = id;  
+          var item  = jQuery(searchElements[currentElement]);
+          if (!item.is('h1,h2,h3,h4,h5'))
+            item = item.prevAll('h1,h2,h3,h4,h5');
+          var offset = item.offset().top;
+          jQuery("html, body").animate({ scrollTop: offset }, 100);
+      }
+      
+      function gotoNext() {
+          gotoElem(currentElement + 1);
+      }
+      
+      function gotoPrev() {
+          gotoElem(currentElement - 1);
+      }
+      
+      jQuery('#results').on('click', 'li', function(event) {
+          event.preventDefault();
+          currentElement = parseInt(jQuery(this).data('id'));
+          gotoElem(currentElement);
+      });
+      </script>
+      <style>.hit { background-color: #ccffff; } #search { width: 100%; }</style>
+      
+      <!-- Content -->
 
 
-<p><a href="https://images-cdn.fantasyflightgames.com/filer_public/5b/96/5b96d1ce-11ee-43a6-be2a-b3e0a85a84b9/keyforge_rulebook_v7-good.pdf">Link to the Rules-PDF</a></p>
 
-<h3 id="version-11---november-2018">VERSION 1.1 - NOVEMBER, 2018</h3>
+      <h3 id="version-11---november-2018">VERSION 1.1 - NOVEMBER, 2018</h3>
 
 <ul>
   <li><a href="#intro">Introduction</a></li>
   <li><a href="#rules">Rules</a></li>
   <li><a href="#glossary">Glossary</a></li>
   <li><a href="#faq">FAQ</a></li>
+  <li><a href="https://images-cdn.fantasyflightgames.com/filer_public/5b/96/5b96d1ce-11ee-43a6-be2a-b3e0a85a84b9/keyforge_rulebook_v7-good.pdf">Link to the Rules-PDF</a></li>
 </ul>
 
 <p><a name="intro"></a></p>
