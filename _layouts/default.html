@@ -14,7 +14,8 @@
     <div class="container-lg px-3 my-5 markdown-body">
       <h1>Keyforge Mobile Friendly Rules</h1>
       
-<input id='search'>
+<input id='search' placeholder='Search..'>
+<div id='searchCount'></div>
 <ul id='results'></ul>
 <script>
 var lastTerm = '';
@@ -28,14 +29,13 @@ var searchElements = [];
 	jQuery('#results').empty();
 	searchElements = [];
 	jQuery('.hit').toggleClass('hit', false);
-
+  jQuery('#searchCount').text('');
 	if (term.length <= 2) {
 		jQuery('.hit').toggleClass('hit', false);
 		return;
 	}
 	
 	function search(item, header) {
-		if (hits > 10) return;
 		if (jQuery(item).text().toUpperCase().indexOf(term) > -1) {
 			var hit = jQuery('<li><a href="#"></a></li>');
 			var text = jQuery(item).text();
@@ -58,8 +58,8 @@ var searchElements = [];
 		}
 	}
 	jQuery('h1, h2, h3, h4, h5').each(function() { search(this, true); });
-	if (hits > 10) return;
 	jQuery('p').each(function() { search(this, false); });
+	jQuery('#searchCount').text(hits + ' matches:');
  });
 
 jQuery('#results').on('click', 'li', function() {
@@ -70,7 +70,7 @@ jQuery('#results').on('click', 'li', function() {
 	jQuery("html, body").animate({ scrollTop: offset }, 100);
 });
 </script>
-<style>.hit { background-color: #ccffff; }</style>
+<style>.hit { background-color: #ccffff; } #search { width: 100%; }</style>
       
       {{ content }}
     </div>
