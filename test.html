@@ -70,8 +70,44 @@ jQuery('#results').on('click', 'li', function() {
 	var offset = item.offset().top;
 	jQuery("html, body").animate({ scrollTop: offset }, 100);
 });
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    document.getElementById("backTop").style.display = "block";
+  } else {
+    document.getElementById("backTop").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
 </script>
-<style>.hit { background-color: #ccffff; }</style>
+<style>.hit { background-color: #ccffff; }
+#backTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+</style>
+
+<button onclick="topFunction()" id="backTop" title="Go to top">Top</button>
+
 
 <p><a href="https://images-cdn.fantasyflightgames.com/filer_public/5b/96/5b96d1ce-11ee-43a6-be2a-b3e0a85a84b9/keyforge_rulebook_v7-good.pdf">Link to the Rules-PDF</a></p>
 
