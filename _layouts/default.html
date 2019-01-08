@@ -7,10 +7,71 @@
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="favicon.png" />
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <script src="jquery-3.3.1.min.js"></script>
     <title>Keyforge Rules</title>
   </head>
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
+      <h1>Keyforge Mobile Friendly Rules</h1>
+      
+<input id='search'>
+<ul id='results'></ul>
+<script>
+var lastTerm = '';
+var searchElements = [];
+ jQuery('#search').on('keydown change input', function() {
+	var term = jQuery(this).val().toUpperCase().trim();
+	if (term == lastTerm) return;
+
+	var hits = 0;
+	lastTerm = term;
+	jQuery('#results').empty();
+	searchElements = [];
+	jQuery('.hit').toggleClass('hit', false);
+
+	if (term.length <= 2) {
+		jQuery('.hit').toggleClass('hit', false);
+		return;
+	}
+	
+	function search(item, header) {
+		if (hits > 10) return;
+		if (jQuery(item).text().toUpperCase().indexOf(term) > -1) {
+			var hit = jQuery('<li><a href="#"></a></li>');
+			var text = jQuery(item).text();
+			if (header) {
+				hit.css('font-weight', 'bold');
+			} else {
+				var text = jQuery(item).text();
+				var index = text.indexOf(term);
+				if (index > 40)
+					text = '...' + text.substring(index-20);
+				if (text.length > 100)
+					text = text.substring(0, 100) + '...'
+			}
+			hit.find('a').text(text);
+			hit.data('id', searchElements.length);
+			jQuery('#results').append(hit);
+			searchElements.push(item);
+			jQuery(item).toggleClass('hit', true);
+			hits++;
+		}
+	}
+	jQuery('h1, h2, h3, h4, h5').each(function() { search(this, true); });
+	if (hits > 10) return;
+	jQuery('p').each(function() { search(this, false); });
+ });
+
+jQuery('#results').on('click', 'li', function() {
+	var item  = jQuery(searchElements[parseInt(jQuery(this).data('id'))]);
+	if (!item.is('h1,h2,h3,h4,h5'))
+		item = item.prevAll('h1,h2,h3,h4,h5');
+	var offset = item.offset().top;
+	jQuery("html, body").animate({ scrollTop: offset }, 100);
+});
+</script>
+<style>.hit { background-color: #ccffff; }</style>
+      
       {{ content }}
     </div>
   </body>
