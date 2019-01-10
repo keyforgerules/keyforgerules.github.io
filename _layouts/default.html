@@ -59,10 +59,16 @@
       </style>
 
       <!-- Search area -->
-      <input id='search' placeholder='Search..' autofocus>
+      <div id='search-area'>
+        <input id='search' placeholder='Search..' autofocus> 
+        <button onClick='clearSearch()'>X</button>
+      </div>
       <div id='searchCount'></div>
       <ul id='results'></ul>
       <script>
+      function clearSearch() {
+        jQuery('#search').val('').trigger('change').focus();
+      }
       var lastTerm = '';
       var searchElements = [];
       var currentElement = -1;
@@ -141,7 +147,12 @@
       });
       jQuery('#search').focus();
       </script>
-      <style>.hit { background-color: #ccffff; } #search { width: 100%; }</style>
+      <style>
+          .hit { background-color: #ccffff; } #search { width: 100%; }
+          #search-area { display: flex; border: 1px solid gray; border-radius: 5px; }
+          #search-area input { flex: 1 1 0; border: 0px; width: 100%; padding: 5px 15px; }
+          #search-area button { flex-grow: 0; flex-basis: 70px; padding: 5px 15px; background: none; border: 0; color: lightgray; font-size: 30px; }
+      </style>
       
       <!-- Content -->
       {{ content }}
