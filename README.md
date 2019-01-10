@@ -125,7 +125,7 @@ To set up the game, perform the following steps, in order:
 
 The game is now ready to begin.
 
-![Suggests play area, mid-game](img/suggested-area.png)
+![Suggests play area, mid-game](img/suggested-area.PNG)
 
 ## TURN SEQUENCE
 
@@ -1058,36 +1058,35 @@ See “Using Cards” on page 6.
 This section provides answers to a number of common questions that
 are asked about the game. These questions are presented in a “Question and Answer” format, with the newest questions at the end.
 
-###### My opponent has 14 Æmber in their pool and I have 0 in mine. At the start of my turn I select Shadows as the active house and play the card Bait and Switch (CoTA 267). How many times does Bait and Switch trigger?
+##### My opponent has 14 Æmber in their pool and I have 0 in mine. At the start of my turn I select Shadows as the active house and play the card Bait and Switch (CoTA 267). How many times does Bait and Switch trigger?
 
 In this situation, Bait and Switch’s effect will be triggered 7 times. Each
 time the effect is triggered it will check if your opponent still has more
 Æmber than you, and if they do it will trigger again. So after the first
 time the effect triggers you will have 1 Æmber and your opponent will
 have 13, the second time you will have 2 Æmber and your opponent
-will have 12, then 3 and 11, 4 and 10, 5 and 9, 6 and 8, then finally 7 and
-7. Once both players have the same amount of Æmber when the effect
+will have 12, then 3 and 11, 4 and 10, 5 and 9, 6 and 8, then finally 7 and 7. Once both players have the same amount of Æmber when the effect
 checks if your opponent has more Æmber than you the effect will see
 that your opponent does not and the card effect will not trigger again.
 
-**Note:**** Repeating an effect does not interact with the Rule of Six (see
+**Note:** Repeating an effect does not interact with the Rule of Six (see
 page 7), as the Rule of Six only applies to playing or using cards, not
 triggering their effect multiple times.
 
-##### Its the first turn of the game and I am going first. I choose house Logos to be the active house and play the card Phase Shift (CoTA 117). Does this allow me to play another card this turn even though the First Turn Rule (see page 5) is in effect?
+#### Its the first turn of the game and I am going first. I choose house Logos to be the active house and play the card Phase Shift (CoTA 117). Does this allow me to play another card this turn even though the First Turn Rule (see page 5) is in effect?
 
 Playing Phase Shift will not allow you to play any more cards from
 your hand this turn, since the First Turn Rule cannot be modified by
 card effects.
 
-##### Its the first turn of the game and I am going first. I choose house Logos to be the active house and play the card Wild Wormhole (CoTA 125). Can Wild Wormhole’s effect be resolved even though the First Turn Rule (see page 5) is in effect?
+#### Its the first turn of the game and I am going first. I choose house Logos to be the active house and play the card Wild Wormhole (CoTA 125). Can Wild Wormhole’s effect be resolved even though the First Turn Rule (see page 5) is in effect?
 
 Wild Wormhole’s effect can be resolved. The First Turn Rule specifies
 that players cannot play or discard more than one card from their hand.
 However it does not prohibit cards from being played or discarded
 from other game areas, such as your deck.
 
-##### I have 2 chains and 7 cards in hand when moving to my draw cards step. Will I shed a chain during this step?
+#### I have 2 chains and 7 cards in hand when moving to my draw cards step. Will I shed a chain during this step?
 
 No, you will not shed a chain during this draw cards step. Chains are
 only shed when a player would draw cards during the draw step and
@@ -1095,7 +1094,7 @@ the chains prevent them from doing so (see “Chains” on Page 8). Since
 you already have 7 cards in your hand, you aren’t going to be drawing
 any cards, and thus don’t lose any of your chains.
 
-##### I have 2 chains and 5 cards in hand when moving to my draw cards step. Will I shed a chain during this step?
+#### I have 2 chains and 5 cards in hand when moving to my draw cards step. Will I shed a chain during this step?
 
 Yes, you will shed a chain during this step. Chains are only shed when a
 player would draw cards during the draw step and the chains prevent
@@ -1105,7 +1104,7 @@ because of the chains you are prevented from drawing that card. Since
 you would normally have drawn the card and the chain prevented it,
 you then shed 1 chain.
 
-##### I have a creature that has the card Biomatrix Backup (CoTA 208) attached. Its my opponent’s turn and they use one of their creatures to attack and destroy my creature. What happens?
+#### I have a creature that has the card Biomatrix Backup (CoTA 208) attached. Its my opponent’s turn and they use one of their creatures to attack and destroy my creature. What happens?
 
 Since it is your opponent’s turn and they are the active player, they will
 get to make all decisions for all cards. In this case Biomatx Backup has
@@ -1113,7 +1112,7 @@ the word “may”, meaning that the effect is optional. Thus if your creature
 is destroyed with the upgrade on it during your opponent’s turn, your
 opponent will decide whether the card is put into your archives or not.
 
-##### I have the card Pitlord (CoTA 093) in play and my opponent plays the card Restringuntus (CoTA 094) and chooses house Dis. What happens when I go to declare my house on my next turn?
+#### I have the card Pitlord (CoTA 093) in play and my opponent plays the card Restringuntus (CoTA 094) and chooses house Dis. What happens when I go to declare my house on my next turn?
 
 On your next turn during the choose a house step of your turn you
 will be in a position where you must choose house Dis because of the
@@ -1122,7 +1121,7 @@ In this case no house is a legal option to be your active house and you
 must declare no house as your active house (see “House Choice” on
 Page 10.)
 
-##### I have chosen house Logos to be my active house this turn and start off by playing Library Access (CoTA 115), I then play Wild Wormhole (CoTA 125). In what order do I resolve this combination of effects?
+#### I have chosen house Logos to be my active house this turn and start off by playing Library Access (CoTA 115), I then play Wild Wormhole (CoTA 125). In what order do I resolve this combination of effects?
 
 When you play a Wild Wormhole after playing a Library Access the
 following happens in this order:
