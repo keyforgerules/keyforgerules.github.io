@@ -13,7 +13,7 @@
 ## WELCOME TO THE CRUCIBLE…
 
 _You are an Archon. Hailed by some as a god, respected by others for
-your wisdom, you were born—or perhaps created—on the Crucible, a
+your wisdom, you were born — or perhaps created — on the Crucible, a
 world in which anything is possible._
 
 The Crucible is ancient, but ever renewed. An artificial planet hanging in
@@ -36,7 +36,7 @@ the Crucible, allies who find value in your ageless wisdom and your
 ability to speak to all creatures. With the aid of these allies, you seek
 out Vaults hidden throughout the Crucible by the cryptic Architects.
 Each Vault can only be unlocked by Æmber-forged keys. Once open, a
-Vault’s contents—the power and knowledge of the Architects—can be
+Vault’s contents — the power and knowledge of the Architects — can be
 consumed by only a single Archon.
 When two Archons discover a Vault, only one can gain its knowledge.
 Only one can move one step closer to the secret of the Crucible…
@@ -51,7 +51,7 @@ forge keys. The first player to gather three keys is able to unlock a Vault
 and win the game.
 
 The defining feature of KeyForge is that no two decks are alike. This is
-not a trading card game—you cannot craft a deck. Rather, each deck
+not a trading card game — you cannot craft a deck. Rather, each deck
 must remain as it is. Every deck in existence is unique!
 
 ## USING THIS DOCUMENT
@@ -72,7 +72,7 @@ while interpreting card abilities.
 # RULES
 
 
-### KEY CONCEPTS
+## KEY CONCEPTS
 
 This section introduces a number of foundational concepts to keep in
 mind while playing the game.
@@ -91,16 +91,19 @@ their third key, and that player wins the game.
 ### READY AND EXHAUSTED
 
 Cards that are in play exist in one of two states.
-Ready cards are oriented upright so that their text may be read from left
+
+**Ready** cards are oriented upright so that their text may be read from left
 to right. A ready card can be used during a player’s turn, causing it to
 exhaust.
-Exhausted cards are rotated 90 degrees to the side. An exhausted card
+
+**Exhausted** cards are rotated 90 degrees to the side. An exhausted card
 is not able to be used until it is readied by a game step or card ability.
-All creatures and artifacts enter play exhausted.
 
-### RUNNING OUT OF TOKENS
+**All creatures and artifacts enter play exhausted.**
 
-OR STATUS CARDS
+![Ready, Exhasusted](/img/ready-exhausted.PNG)
+
+### RUNNING OUT OF TOKENS OR STATUS CARDS
 There is no limit to the number of damage tokens, Æmber tokens, or
 status cards that can be in the game area at a given time. If there is a
 shortage of the provided tokens or status cards, other tokens, counters,
@@ -108,44 +111,38 @@ or coins may be used to track the game state.
 
 
 
-### GAME SETUP
+## GAME SETUP
 
 To set up the game, perform the following steps, in order:
-1 Place all damage tokens, Æmber tokens, and status cards in a common
-supply within easy reach of both players.
-2 Each player places their identity card to the left or right side of their
-play area.
-3 Each player places three key tokens, one of each color, with the
-unforged side faceup near their identity card.
-4 Randomly determine who is the first player. That player takes the first
-turn when the game begins. (If players are playing a series of games
-between two decks, in each game after the first, the player who used
-the deck that was defeated in the previous game chooses who is the
-first player.)
-5 Each player shuffles their deck and offers it to the opponent for
-additional shuffling and/or a final cut.
-6 The first player draws a starting hand of seven cards. The other player
-draws a starting hand of six cards.
-7 Each player, starting with the first player, has one opportunity to
-mulligan their starting hand by shuffling it back into their deck and
-drawing a new starting hand with one fewer card in it. (This step is
-skipped in the Quickstart game.)
+
+1. Place all damage tokens, Æmber tokens, and status cards in a common supply within easy reach of both players.
+2. Each player places their identity card to the left or right side of their play area.
+3. Each player places three key tokens, one of each color, with the unforged side faceup near their identity card.
+4. Randomly determine who is the first player. That player takes the first turn when the game begins. (If players are playing a series of games between two decks, in each game after the first, the player who used the deck that was defeated in the previous game chooses who is the first player.)
+5. Each player shuffles their deck and offers it to the opponent for additional shuffling and/or a final cut.
+6. The first player draws a **starting hand of seven cards**. The other player draws a **starting hand of six cards**.
+7. Each player, starting with the first player, has one opportunity to **mulligan** their starting hand by shuffling it back into their deck and drawing a new starting hand with one fewer card in it. (This step is skipped in the Quickstart game.) 
+
 The game is now ready to begin.
 
+![Suggests play area, mid-game](img/suggested-area.png)
 
-### TURN SEQUENCE
+## TURN SEQUENCE
 
-The game is played over a series of turns. Players alternate taking turns
-until one player wins the game.
+The game is played over a series of turns. Players alternate taking turns until one player wins the game.
+
 Each turn consists of five steps:
-1 Forge a key.
-2 Choose a house.
-3 Play, discard, and use cards of the chosen house.
-4 Ready cards.
-5 Draw cards.
-The player taking a turn is referred to as the active player. The active
+
+1. Forge a key.
+2. Choose a house.
+3. Play, discard, and use cards of the chosen house.
+4. Ready cards.
+5. Draw cards.
+
+The player taking a turn is referred to as the **active player**. The active
 player is the only player that can perform actions or make decisions; a
 player does not make any decisions when it is not their turn.
+
 Each step is described in the following sections.
 
 ### STEP 1: FORGE A KEY
@@ -155,47 +152,40 @@ they must do so. To forge a key, the active player spends Æmber from
 the Æmber pool on their identity card, returning it to the common
 supply. Then, that player flips any one of their key tokens over to its
 forged side, indicating that the key has been forged.
-The default cost to forge a key is six Æmber. Some card abilities
-may increase or decrease this number.
-No more than one key can be forged during this step each turn, even
-if the active player has enough Æmber to forge multiple keys.
 
+* The default cost to forge a key is six Æmber. Some card abilities may increase or decrease this number.
+* No more than one key can be forged during this step each turn, even if the active player has enough Æmber to forge multiple keys.
 
 ### STEP 2: CHOOSE A HOUSE
 
-Each KeyForge deck is composed of three different houses, which are
+Each _KeyForge_ deck is composed of three different houses, which are
 shown on the identity card. During this step, the active player chooses
-one of those three houses to activate, making it the active house for
+one of those three houses to activate, making it the **active house** for
 the remainder of the turn. This active house determines which cards the
 active player can play, discard from their hand, and use this turn.
-After choosing a house, the active player has the option to take all
-cards in their archives and add them to their hand. (See “Archives” in
-the Glossary.)
-If a player controls a card that does not belong to one of the three
-houses in their deck, they may (if they desire) choose and activate
-that house during this step instead of one of the three houses in
-their deck.
 
+* After choosing a house, the active player has the option to take all cards in their archives and add them to their hand. (See “Archives” in the Glossary.)
+* If a player controls a card that does not belong to one of the three houses in their deck, they may (if they desire) choose and activate that house during this step instead of one of the three houses in their deck.
 
-### STEP 3: PLAY, DISCARD, AND USE CARDS
-
-OF THE CHOSEN HOUSE
+### STEP 3: PLAY, DISCARD, AND USE CARDS OF THE CHOSEN HOUSE
 The active player may play or discard any number of cards of the active
 house from their hand and may use any number of cards of the active
 house that are in play under their control. Eligible cards may be played,
 used, or discarded in any order.
+
 A card’s house is determined by an icon in the
 upper-left corner. If the active house corresponds
 to a card’s icon, that card is eligible to be played,
 used, or discarded.
-Rules for playing, discarding, and using cards are
-described later.
-First Turn Rule: During the first player’s first
-turn of the game, that player cannot play or
-discard more than one card from their hand.
-Card effects cannot modify this rule.
-The active player may not play, use, or discard cards of other (nonactive) houses unless specified by a card ability
 
+![A Brobnar Card](img/brobnar.PNG)
+
+Rules for playing, discarding, and using cards are described later.
+
+* **First Turn Rule:** During the first player’s first turn of the game, that player cannot play or discard more than one card from their hand. Card effects cannot modify this rule.
+* The active player may not play, use, or discard cards of other (nonactive) houses unless specified by a card ability
+
+![Factions](img/factions.PNG)
 
 ### STEP 4: READY CARDS
 
@@ -205,32 +195,28 @@ The active player readies each of their exhausted cards.
 
 The active player draws cards from the top of their deck until they have
 six cards in their hand. After a player completes this step, their turn ends.
-If the active player has more than six cards in hand, they do not
-discard down to six.
-If a player needs to draw cards (during this step or at any other time)
-and cannot because their deck is empty, that player shuffles their
-discard pile to reset their deck, and then continues to draw.
-When a player’s turn ends, if that player has enough Æmber in their
-pool to afford a key, the player announces “Check!” so that their
-opponent knows the forging of a key at the start of that player’s next
-turn is imminent.
 
+* If the active player has more than six cards in hand, they do not discard down to six.
+* If a player needs to draw cards (during this step or at any other time) and cannot because their deck is empty, that player shuffles their discard pile to reset their deck, and then continues to draw.
+* When a player’s turn ends, if that player has enough Æmber in their pool to afford a key, the player announces “Check!” so that their opponent knows the forging of a key at the start of that player’s next turn is imminent.
 
-### PLAYING CARDS
+## PLAYING CARDS
 
 The active player is permitted to play any number of cards that belong to
 the active house during step three of their turn.
-ÆMBER BONUS
+
+#### ÆMBER BONUS
 Many cards in the game have an Æmber bonus below the house icon.
 When a card with an Æmber bonus is played, the first thing the active
 player does is gain that much Æmber. Each time a player gains Æmber
 (for any reason), the Æmber is placed in that player’s Æmber pool (on
 their identity card).
 
+![Æmber Bonus](img/amber-bonus.PNG)
 
-### PLAY ABILITIES
+#### PLAY ABILITIES
 
-Some cards have a bold “Play:” ability. Such abilities resolve after the
+Some cards have a bold **“Play:”** ability. Such abilities resolve after the
 card’s Æmber bonus is collected, if it has any, and immediately after the
 card enters play.
 
@@ -240,15 +226,15 @@ There are four types of cards in the game: action cards, artifacts,
 creatures, and upgrades. There are different rules describing how each
 card type is played.
 
-
-### ACTION CARDS
+#### ACTION CARDS
 
 When an action card is played, the active
-player resolves the card’s “Play:” ability
+player resolves the card’s **“Play:”** ability
 and, after resolving as much of the ability
 as possible, places the card in their
 discard pile.
 
+![Action card](img/action-card.PNG)
 
 ### ARTIFACTS
 
@@ -258,8 +244,9 @@ behind that player’s battleline, which is
 explained on the next page. Artifacts
 remain in play from turn to turn.
 
+![Artifact](img/artifact-card.PNG)
 
-### CREATURES
+#### CREATURES
 
 Creatures enter play exhausted and are placed in the front row of
 the active player’s play area. This row is referred to as the battleline.
@@ -267,21 +254,28 @@ Creatures remain in play from turn to turn, and they each have
 power and armor values that they use to resolve fights, which are
 described later.
 
-Each time a creature enters play, it must be placed on a flank—at the
+![Artifact](img/creature.PNG)
+
+Each time a creature enters play, it must be placed on a flank — at the
 far left or the far right of its controller’s battleline. Each time a creature
 leaves play, shift the battleline inward to close the gap.
 
+![Battleline](img/battleline.PNG)
 
-### UPGRADES
+![Creatures enter play on the flank of the battleline](img/flank.PNG)
+
+![If a creature leaves play, the battleline is shifted inward](img/shift-battleline.PNG)
+
+#### UPGRADES
 
 Upgrades enter play attached to (i.e., partially overlapped by) a creature
 chosen by the player who controls the upgrade. Each upgrade remains in
 play from turn to turn and modifies the card to which it is attached.
-If the card to which an upgrade is attached leaves play, the upgrade
-is discarded.
-If an upgrade cannot attach to a card in play, the upgrade cannot
-enter play.
 
+* If the card to which an upgrade is attached leaves play, the upgrade is discarded.
+* If an upgrade cannot attach to a card in play, the upgrade cannot enter play.
+
+![The Protect the Weak upgrade is attached to the creature, Quixo the “Adventurer.”](img/upgrades.PNG)
 
 ### DISCARDING CARDS
 
@@ -297,61 +291,57 @@ The active player can use any number of cards from the active house that
 they have in play during step three of their turn. Depending on a card’s
 type, the active player is able to do different things when using that card.
 
-### UPGRADES
+#### UPGRADES
 
 An upgrade modifies the creature it is attached to and is not used
 independently of that creature.
 
-### USING ARTIFACTS
+#### USING ARTIFACTS
 
 There are two types of abilities that enable a player to use an artifact:
-“Action:” abilities and “Omni:” abilities.
-When a player uses an artifact, they exhaust the card and then
-resolve its abilities.
-A player can only resolve an “Action:” ability if it is on a card that
-belongs to the active house.
-A player can resolve an “Omni:” ability even if it is on a card that
-does not belong to the active house.
-Some artifacts require that they be sacrificed as part of the cost of
-using them. When an artifact is sacrificed, it is placed in its owner’s
-discard pile. A player must still exhaust such an artifact when using it.
-Artifacts cannot be used to reap or to fight.
+**“Action:”** abilities and **“Omni:”** abilities.
 
+* When a player uses an artifact, they exhaust the card and then resolve its abilities.
+* A player can only resolve an **“Action:”** ability if it is on a card that belongs to the active house.
+* A player can resolve an **“Omni:”** ability even if it is on a card that does **not** belong to the active house.
+* Some artifacts require that they be sacrificed as part of the cost of using them. When an artifact is sacrificed, it is placed in its owner’s discard pile. A player must still exhaust such an artifact when using it.
+* Artifacts cannot be used to reap or to fight.
 
-### USING CREATURES
+#### USING CREATURES
 
 When a player uses a creature, that player must exhaust the creature,
 and the player has the option to reap, fight, or to trigger the creature’s
-“Action:” ability.
+**“Action:”** ability.
 
-### REAP
+##### REAP
 
-Any ready creature of the active house may reap. When a
+**Any ready creature of the active house may reap.**** When a
 creature is used to reap, its controller gains 1 Æmber for their Æmber
-pool. Then, all “Reap:” abilities the creature has, if it has any, resolve.
+pool. Then, all **“Reap:”** abilities the creature has, if it has any, resolve.
 
-### FIGHT
+##### FIGHT
 
-Any ready creature of the active house may fight. When a creature
+**Any ready creature of the active house may fight.** When a creature
 is used to fight, its controller chooses one eligible creature controlled
 by the opponent as the target of the attack. Each of the two creatures
 deals an amount of damage equal to its power (the value to the left
 of the card’s title) to the other creature. All of this damage is dealt
 simultaneously. After the fight resolves, if the creature that is being
-used to fight survives, all “Fight:” abilities the creature has, if it has
+used to fight survives, all **“Fight:”** abilities the creature has, if it has
 any, resolve.
+
 A creature cannot fight if there is no enemy creature that can be
 chosen as the target of the attack.
 
-### ACTION
+##### ACTION
 
-Any ready creature of the active house may trigger its “Action:”
-ability, if it has one. When a creature is used to trigger its “Action:”
-ability, the creature exhausts and all “Action:” abilities the creature
+**Any ready creature of the active house may trigger its “Action:” ability, if it has one.**
+When a creature is used to trigger its **“Action:”**
+ability, the creature exhausts and all **“Action:”** abilities the creature
 has resolve.
 
 
-### DAMAGE AND ARMOR
+#### DAMAGE AND ARMOR
 
 When a creature is dealt damage, place an amount of damage tokens
 equal to the amount of damage dealt on the creature. If a creature has as
@@ -359,8 +349,16 @@ much or more damage on it as it has power, the creature is destroyed and
 placed on top of its owner’s discard pile. If a creature has an armor value
 (to the right of the card’s title), the armor prevents that much incoming
 damage each turn. (For more details, see “Armor” in the Glossary.)
-When a creature leaves play, any Æmber on that creature is gained
-by the opponent. (See “Capture” in the Glossary.)
+
+* When a creature leaves play, any Æmber on that creature is gained by the opponent. (See “Capture” in the Glossary.)
+
+#### COMBAT EXAMPLE
+
+![Combat example 1](combat-1.PNG)
+
+![Combat example 2](combat-2.PNG)
+
+![Combat example 3](combat-3.PNG)
 
 ### CARD ABILITIES
 
@@ -370,34 +368,32 @@ the active player makes all decisions while resolving an ability.
 For details on specific terminology that can be found in card ability text,
 see the Glossary.
 
-### USING CARDS VIA OTHER CARD ABILITIES
+#### USING CARDS VIA OTHER CARD ABILITIES
 
 If a card ability allows a player to play or use another card (or to fight or
 to reap with a card), the chosen card may belong to any house unless the
 ability specifically states otherwise.
-When using a card via a card ability, any other requirements of using
-the card (such as exhausting to reap, fight, or resolve its “Action:”
-ability) must be observed, or the card cannot be used.
-Players can only use cards they control, unless a card ability
-specifically states otherwise.
 
-### THE RULE OF SIX
+* When using a card via a card ability, any other requirements of using the card (such as exhausting to reap, fight, or resolve its **“Action:”** ability) must be observed, or the card cannot be used.
+* Players can only use cards they control, unless a card ability specifically states otherwise.
+
+#### THE RULE OF SIX
 
 Occasionally, a situation may emerge in which, through a combination
 of abilities, the same card may be played or used repeatedly during the
 same turn. A player cannot play and/or use the same card and/or other
-copies of that card (by title) more than six times during a given turn.
+copies of that card (by title) more than **six times** during a given turn.
 
-### CONSTANT ABILITIES
+#### CONSTANT ABILITIES
 
 If a card has an ability that does not have a boldfaced precursor, the
 ability is a constant ability that is active so long as the card remains in
 play and meets all conditions specified by the ability.
-Constant abilities on a card are active even while that card
-is exhausted.
-Applying the effects of a constant ability is not considered using a
-card and therefore does not cause the card to exhaust.
 
+* Constant abilities on a card are active even while that card is exhausted.
+* Applying the effects of a constant ability is not considered using a card and therefore does not cause the card to exhaust.
+
+![The game text on Mother is an example of a constant ability](img/constant-ability.PNG)
 
 ### CHAINS
 
@@ -406,26 +402,33 @@ onto specific Archons by the Architects: sometimes in an effort to better
 challenge the Archon to grow and overcome greater adversity, and
 other times to penalize the Archon for breaking a rule or a piece of
 Crucible etiquette.
+
 A player may gain chains through card abilities during a game. When
 a player gains chains, that player increases their chain tracker by the
 number of chains gained.
+
+![Chains](img/chains.PNG)
+
 Each time (including during setup) a player with one or more chains would
 draw one or more cards to refill their hand, that player draws fewer cards
 (based on their current chain level, see below) and then sheds one chain
 by reducing their chain tracker by one.
+
 The more chains a player has, the greater the card penalty becomes.
-Chains 1–6: draw 1 fewer card.
-Chains 7–12: draw 2 fewer cards.
-Chains 13–18: draw 3 fewer cards.
-Chains 19–24: draw 4 fewer cards.
-Example: Tori has been assigned seven chains. During setup, Tori will
+
+* Chains 1–6: draw 1 fewer card.
+* Chains 7–12: draw 2 fewer cards.
+* Chains 13–18: draw 3 fewer cards.
+* Chains 19–24: draw 4 fewer cards.
+
+**Example:** Tori has been assigned seven chains. During setup, Tori will
 draw two fewer cards and shed a chain. Then, the next six times Tori
 refills her hand, she will draw up to five cards and shed another chain.
 After all of her chains have been shed, Tori will draw to the standard
 hand size.
 
 
-### CHAIN HANDICAPS (OPTIONAL)
+#### CHAIN HANDICAPS (OPTIONAL)
 
 When playing a game between a weaker deck and a stronger
 deck, players may use chains as a means to handicap the stronger
@@ -434,24 +437,26 @@ known decks rather than a potentially unfair competition between decks
 that aren’t known. When playing with new decks, or competing in a
 tournament, players will not use this handicap.
 
-### SUGGESTIONS FOR ASSIGNING CHAINS
+##### SUGGESTIONS FOR ASSIGNING CHAINS
 
 When the players have a sense that a particular deck is stronger than
 the opposing deck, start it with four chains. From then on, every time
 the chained deck wins three games in a row against that opposing
 deck, adjust the number of chains up by one, and if it loses three
 games in a row, adjust the number of chains down by one.
+
 As a player plays more games with their collection, the number of
 chains assigned to a deck will fluctuate up and down based on the
 matchup and how well the deck has performed against the opposing
 deck.
 
-### CHAIN BIDDING
+##### CHAIN BIDDING
 
 If players are reasonably familiar with two decks they can ignore the
 suggested number of chains, and instead bid a number of chains for
 the right to use a particular deck.
-Example: Terry and Julie decide to play Mother Mahospot against
+
+**Example:** Terry and Julie decide to play Mother Mahospot against
 Chancellor Fisher. Mother Mahospot is a deck that both players are
 very familiar with, feel is quite strong, and enjoy playing. Chancellor
 Fisher is a newer deck, that the players are not as comfortable
@@ -466,9 +471,6 @@ Chancellor Fisher.
 You are now familiar with the basic rules of the game. The next section
 of this book contains a Glossary of advanced concepts that can be
 referenced while playing or interpreting card abilities.
-An introduction to the KeyForge setting, with two short stories and
-an introduction to each of the houses in the game, can be found on
-page 13.
 
 <a name='glossary'></a>
 
