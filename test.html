@@ -75,7 +75,7 @@
       var searchElements = [];
       var currentElement = -1;
        jQuery('#search').on('keydown change input', function() {
-        var term = jQuery(this).val().toUpperCase().trim();
+        var term = jQuery(this).val().toUpperCase().trim().replace('Æ', 'AE');
         if (term == lastTerm) return;
 
         var hits = 0;
@@ -91,22 +91,20 @@
           jQuery('.hit').toggleClass('hit', false);
           return;
         }
-        
-        function search(item, header) {
-          if (jQuery(item).text().toUpperCase().indexOf(term) > -1) {
+          
+        function search(item) {
+          if (jQuery(item).text().toUpperCase().replace('Æ', 'AE').indexOf(term) > -1) {
             var hit = jQuery('<li><a href="#"></a></li>');
             var text = jQuery(item).text();
-            if (header) {
-              hit.css('font-weight', 'bold');
+            if (jQuery(item).is('h1,h2,h3,h4,h5')) {
+              text = '<b>' + text + '</b>';
             } else {
-              var text = jQuery(item).text();
-              var index = text.indexOf(term);
-              if (index > 40)
-                text = '...' + text.substring(index-20);
+              text = '<b>' + jQuery(item).prevAll('h1,h2,h3,h4,h5').first().text() + '</b>: ' + text;
+              var index = text.toUpperCase().indexOf(term);
               if (text.length > 100)
                 text = text.substring(0, 100) + '...'
             }
-            hit.find('a').text(text);
+            hit.find('a').html(text);
             hit.data('id', searchElements.length);
             jQuery('#results').append(hit);
             searchElements.push(item);
@@ -114,12 +112,12 @@
             hits++;
           }
         }
-        jQuery('h1, h2, h3, h4, h5').each(function() { search(this, true); });
-        jQuery('p').each(function() { search(this, false); });
+
+        jQuery('h1, h2, h3, h4, h5, p').each(function() { search(this); });
         jQuery('#searchCount').text(hits + ' matches:');
         
         jQuery('#prev, #next').toggleClass('hidden', hits == 0);
-       });
+      });
 
       function gotoElem(id) {
           if (id < 0)
