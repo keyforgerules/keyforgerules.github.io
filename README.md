@@ -101,7 +101,7 @@ is not able to be used until it is readied by a game step or card ability.
 
 **All creatures and artifacts enter play exhausted.**
 
-![Ready, Exhasusted](/img/ready-exhausted.PNG)
+![Ready, Exhasusted](/img/ready-exhausted.jpg)
 
 ### RUNNING OUT OF TOKENS OR STATUS CARDS
 There is no limit to the number of damage tokens, Æmber tokens, or
@@ -125,7 +125,7 @@ To set up the game, perform the following steps, in order:
 
 The game is now ready to begin.
 
-![Suggests play area, mid-game](img/suggested-area.PNG)
+![Suggests play area, mid-game](img/suggested-area.jpg)
 
 ## TURN SEQUENCE
 
@@ -178,14 +178,14 @@ upper-left corner. If the active house corresponds
 to a card’s icon, that card is eligible to be played,
 used, or discarded.
 
-![A Brobnar Card](img/brobnar.PNG)
+![A Brobnar Card](img/brobnar.jpg)
 
 Rules for playing, discarding, and using cards are described later.
 
 * **First Turn Rule:** During the first player’s first turn of the game, that player cannot play or discard more than one card from their hand. Card effects cannot modify this rule.
 * The active player may not play, use, or discard cards of other (nonactive) houses unless specified by a card ability
 
-![Factions](img/factions.PNG)
+![Factions](img/factions.jpg)
 
 ### STEP 4: READY CARDS
 
@@ -212,7 +212,7 @@ player does is gain that much Æmber. Each time a player gains Æmber
 (for any reason), the Æmber is placed in that player’s Æmber pool (on
 their identity card).
 
-![Æmber Bonus](img/amber-bonus.PNG)
+![Æmber Bonus](img/amber-bonus.jpg)
 
 #### PLAY ABILITIES
 
@@ -234,7 +234,7 @@ and, after resolving as much of the ability
 as possible, places the card in their
 discard pile.
 
-![Action card](img/action-card.PNG)
+![Action card](img/action-card.jpg)
 
 ### ARTIFACTS
 
@@ -244,7 +244,7 @@ behind that player’s battleline, which is
 explained on the next page. Artifacts
 remain in play from turn to turn.
 
-![Artifact](img/artifact-card.PNG)
+![Artifact](img/artifact-card.jpg)
 
 #### CREATURES
 
@@ -254,17 +254,17 @@ Creatures remain in play from turn to turn, and they each have
 power and armor values that they use to resolve fights, which are
 described later.
 
-![Artifact](img/creature.PNG)
+![Artifact](img/creature.jpg)
 
 Each time a creature enters play, it must be placed on a flank — at the
 far left or the far right of its controller’s battleline. Each time a creature
 leaves play, shift the battleline inward to close the gap.
 
-![Battleline](img/battleline.PNG)
+![Battleline](img/battleline.jpg)
 
-![Creatures enter play on the flank of the battleline](img/flank.PNG)
+![Creatures enter play on the flank of the battleline](img/flank.jpg)
 
-![If a creature leaves play, the battleline is shifted inward](img/shift-battleline.PNG)
+![If a creature leaves play, the battleline is shifted inward](img/shift-battleline.jpg)
 
 #### UPGRADES
 
@@ -275,7 +275,7 @@ play from turn to turn and modifies the card to which it is attached.
 * If the card to which an upgrade is attached leaves play, the upgrade is discarded.
 * If an upgrade cannot attach to a card in play, the upgrade cannot enter play.
 
-![The Protect the Weak upgrade is attached to the creature, Quixo the “Adventurer.”](img/upgrades.PNG)
+![The Protect the Weak upgrade is attached to the creature, Quixo the “Adventurer.”](img/upgrades.jpg)
 
 ### DISCARDING CARDS
 
@@ -354,11 +354,11 @@ damage each turn. (For more details, see “Armor” in the Glossary.)
 
 #### COMBAT EXAMPLE
 
-![Combat example 1](img/combat-1.PNG)
+![Combat example 1](img/combat-1.jpg)
 
-![Combat example 2](img/combat-2.PNG)
+![Combat example 2](img/combat-2.jpg)
 
-![Combat example 3](img/combat-3.PNG)
+![Combat example 3](img/combat-3.jpg)
 
 ### CARD ABILITIES
 
@@ -393,7 +393,7 @@ play and meets all conditions specified by the ability.
 * Constant abilities on a card are active even while that card is exhausted.
 * Applying the effects of a constant ability is not considered using a card and therefore does not cause the card to exhaust.
 
-![The game text on Mother is an example of a constant ability](img/constant-ability.PNG)
+![The game text on Mother is an example of a constant ability](img/constant-ability.jpg)
 
 ### CHAINS
 
@@ -407,7 +407,7 @@ A player may gain chains through card abilities during a game. When
 a player gains chains, that player increases their chain tracker by the
 number of chains gained.
 
-![Chains](img/chains.PNG)
+![Chains](img/chains.jpg)
 
 Each time (including during setup) a player with one or more chains would
 draw one or more cards to refill their hand, that player draws fewer cards
@@ -511,7 +511,7 @@ forge keys.
 
 See also: Capture, Keys, Reap, Steal.
 
-![Æmber token](img/amber.PNG)
+![Æmber token](img/amber.jpg)
 
 ### ARCHIVES
 
@@ -797,7 +797,7 @@ standard house and is now a part of a new house. For all
 game purposes, treat a maverick as belonging to the house
 printed on its graphic template.
 
-![Maverick](img/maverick.PNG)
+![Maverick](img/maverick.jpg)
 
 ### MAY
 
@@ -906,7 +906,7 @@ is used by the deck-generation algorithm to determine how frequently
 it will appear in decks. Special cards have a different type of distribution
 and do not obey the game’s standard rarity rules.
 
-![Rarity](img/rarity.PNG)
+![Rarity](img/rarity.jpg)
 
 ### REAP
 
@@ -1015,7 +1015,7 @@ being used to fight.
 In the battleline, taunt creatures are slid slightly forward to indicate their 
 presence to the opponent.
 
-![Champion Anaphiel (center) has the taunt keyword, and is pushed slightly forward in the battleline.](img/taunt.PNG)
+![Champion Anaphiel (center) has the taunt keyword, and is pushed slightly forward in the battleline.](img/taunt.jpg)
 
 ### “THIS WAY”
 If an ability refers to an effect that occurred “this way,” it is referring to
