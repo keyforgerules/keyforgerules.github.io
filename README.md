@@ -1,10 +1,11 @@
-### VERSION 1.1 - NOVEMBER, 2018
+### VERSION 1.2 - JANUARY, 2019
 
 * [Introduction](#intro)
 * [Rules](#rules)
 * [Glossary](#glossary)
+* [Errata](#errata)
 * [FAQ](#faq)
-* [Link to the Rules-PDF](https://images-cdn.fantasyflightgames.com/filer_public/5b/96/5b96d1ce-11ee-43a6-be2a-b3e0a85a84b9/keyforge_rulebook_v7-good.pdf)
+* [Link to the Rules-PDF](https://kop-cdn.keyforgegame.com/filer_public/30/03/30032847-fa82-46a3-a28b-984efc5a91ca/keyforge_rulebook_v8-compressed.pdf)
 
 <a name='intro'></a>
 
@@ -155,6 +156,7 @@ forged side, indicating that the key has been forged.
 
 * The default cost to forge a key is six Æmber. Some card abilities may increase or decrease this number.
 * No more than one key can be forged during this step each turn, even if the active player has enough Æmber to forge multiple keys.
+* Some cards have effects that allow Æmber on these cards to be spent when forging keys. If there is enough Æmber on cards with this effect you control combined with the Æmber in your Æmber pool to forge a key you must do so during Step 1.
 
 ### STEP 2: CHOOSE A HOUSE
 
@@ -182,8 +184,8 @@ used, or discarded.
 
 Rules for playing, discarding, and using cards are described later.
 
-* **First Turn Rule:** During the first player’s first turn of the game, that player cannot play or discard more than one card from their hand. Card effects cannot modify this rule.
-* The active player may not play, use, or discard cards of other (nonactive) houses unless specified by a card ability
+* **First Turn Rule:** During the first player’s first turn of the game, that player cannot play or discard more than one card from their hand. Card effects can modify this rule.
+* The active player may not play, use, or discard cards that aren't of the active house unless specified by a card ability
 
 ![Factions](img/factions.jpg)
 
@@ -302,7 +304,7 @@ There are two types of abilities that enable a player to use an artifact:
 **“Action:”** abilities and **“Omni:”** abilities.
 
 * When a player uses an artifact, they exhaust the card and then resolve its abilities.
-* A player can only resolve an **“Action:”** ability if it is on a card that belongs to the active house.
+* A player can only use an **“Action:”** ability if it is on a card that belongs to the active house.
 * A player can resolve an **“Omni:”** ability even if it is on a card that does **not** belong to the active house.
 * Some artifacts require that they be sacrificed as part of the cost of using them. When an artifact is sacrificed, it is placed in its owner’s discard pile. A player must still exhaust such an artifact when using it.
 * Artifacts cannot be used to reap or to fight.
@@ -311,18 +313,18 @@ There are two types of abilities that enable a player to use an artifact:
 
 When a player uses a creature, that player must exhaust the creature,
 and the player has the option to reap, fight, or to trigger the creature’s
-**“Action:”** ability.
+**“Action:”** ability, or trigger the creature's **“Omni:”** ability. Any card effect that causes a creature to fight, reap, trigger its **“Action:”** ability, or to trigger its **“Omni:”** ability is causing that creature to be used.
 
 ##### REAP
 
-**Any ready creature of the active house may reap.**** When a
-creature is used to reap, its controller gains 1 Æmber for their Æmber
+**Any ready creature of the active house may reap.** When a
+creature is used to reap, the creature exhausts and its controller gains 1 Æmber for their Æmber
 pool. Then, all **“Reap:”** abilities the creature has, if it has any, resolve.
 
 ##### FIGHT
 
 **Any ready creature of the active house may fight.** When a creature
-is used to fight, its controller chooses one eligible creature controlled
+is used to fight, the creature exhausts and its controller chooses one eligible creature controlled
 by the opponent as the target of the attack. Each of the two creatures
 deals an amount of damage equal to its power (the value to the left
 of the card’s title) to the other creature. All of this damage is dealt
@@ -340,6 +342,9 @@ When a creature is used to trigger its **“Action:”**
 ability, the creature exhausts and all **“Action:”** abilities the creature
 has resolve.
 
+##### OMNI
+
+**Any ready creature may trigger its “Omni:” ability, if it has one,** even if it does **not** belong to the active house. When a creature is used to trigger its **“Omni:”** ability, the creature exhausts and all **“Omni:”** abilities the creature has resolve.
 
 #### DAMAGE AND ARMOR
 
@@ -362,11 +367,15 @@ damage each turn. (For more details, see “Armor” in the Glossary.)
 
 ### CARD ABILITIES
 
-When resolving a card ability, resolve as much of the ability as can be
-resolved, and ignore the rest. Unless otherwise specified by the ability,
-the active player makes all decisions while resolving an ability.
-For details on specific terminology that can be found in card ability text,
-see the Glossary.
+Unless otherwise specified by the ability, the active player makes all decisions while resolving an ability.
+
+For details on specific terminology that can be found in card ability text, see the Glossary.
+
+#### RESOLVE AS MUCH AS YOU CAN
+
+While resolving a card ability, resolve as much of the ability as can be resolved, and ignore any parts of the ability that cannot be resolved.
+
+**Example**: _Aaron plays the card Anger (COTA 001), that reads "**Play**: Ready and fight with a friendly creature.", and chooses his friendly Snufflegator (COTA 358) to resolve the ability on. However, the Snufflegator is already ready, so Aaron ignores that part of the ability and just uses his friendly Snufflegator to fight._
 
 #### USING CARDS VIA OTHER CARD ABILITIES
 
@@ -509,6 +518,8 @@ need to resolve during their turn.
 Æmber is tracked by Æmber tokens, and is used to
 forge keys.
 
+Only Æmber in your own Æmber pool is considered “yours” for the purpose of card effects.
+
 See also: Capture, Keys, Reap, Steal.
 
 ![Æmber token](img/amber.jpg)
@@ -533,19 +544,23 @@ the card is archived from, the archived card comes from that player’s hand.
 
 Some creatures have an armor value to the right of the card title. Armor
 prevents an amount of damage equal to the armor value that the creature
-would take each turn. For example, if a creature has two armor and is dealt
-one damage, that damage is absorbed by the armor, leaving the creature
-with one armor for the rest of the turn. If the creature is later dealt three
-more damage during that turn, one damage is absorbed and the other
-two damage are dealt to that creature.
+would take each turn. Armor prevents damage before it is actually dealt.
+For example, if a creature has two armor and is dealt
+one damage, that damage is instead prevented by the armor, leaving the creature
+with one armor that can prevent damage left for the rest of the turn. If the
+creature is later dealt three more damage during that turn, one damage is
+prevented and the other two damage are dealt to that creature.
 
 If a creature gains armor, the gains are additive and accumulate on top of
 the creature’s printed armor value.
 
 If a creature gains armor during a turn, the gained armor does not
-absorb damage already dealt that turn. If a creature loses armor during
-a turn, it is not retroactively dealt damage that was already absorbed by
+prevent damage already dealt that turn. If a creature loses armor during
+a turn, it is not retroactively dealt damage that was already prevented by
 the armor.
+
+If a creature loses any amount of armor, it loses armor that has been
+used to prevent damage this turn before it loses armor that has not been used to prevent damage this turn.
 
 If a creature has a “~” symbol in its armor field, the creature has no
 armor. Such creatures may gain armor through card effects.
@@ -577,6 +592,25 @@ If the word “before” is used in an ability (for example, **“Before Reap:�
 the reap or fight (but after the card exhausts, if exhausting is required to
 use the card).
 
+### CANNOT VS MUST/MAY, CANNOT VS PERMISSIVE
+
+If two card efects are simultaneously instructing a player that they
+“cannot” do something and that they “must” or “may” do the same
+thing, the “cannot” effect takes precedence.
+
+**Example**: _Anna controls a Pitlord (COTA 093) which reads “While
+Pitlord is in play you must choose Dis as your active house.” On their 
+next turn Anna’s opponent plays Restringuntus (COTA 094) which reads
+"**Play**: Choose a house. Your opponent cannot choose that house as
+their active house until Restringuntus leaves play.” and chooses Dis
+for its ability. On Anna’s next turn, she both must and cannot choose
+Dis, but because cannot takes precedence over must, she only cannot
+choose Dis and must choose one of her other houses instead._
+
+If two card effects are simultaneously instructing a player that they
+cannot do something and that they may do something, the “cannot”
+effect takes precedence.
+
 ### CAPTURE
 
 Captured Æmber is taken from an opponent’s Æmber pool and placed
@@ -604,16 +638,23 @@ chain by reducing the number on their chain tracker by one.
 * Chains 13-18: draw three fewer cards.
 * Chains 19-24: draw four fewer cards.
 
+While drawing an initial hand of cards during setup, if a deck has chains
+assigned to it, the chains also apply to the initial hand of cards drawn as
+if you were refilling a hand during step 5. A chain is shed for this initial
+draw as per the standard rules.
+
 See ”Chains” on page 8.
 
 ### CONTROL
 
 A player owns the cards that begin the game in their deck. When a card
-enters play, it is under its owner’s control.
+is played, it enters play under the control of the active player.
 
 A player can take control of an opponent’s card. When this happens,
 that card is placed in the new controller’s play area. If it is a creature, it is
-placed on a flank of the new controller’s battleline.
+placed on a flank of the new controller’s battleline. If multiple effects that
+take control of a card are used on the same card, the most recent effect
+takes precedence.
 
 If a player takes control of a card that belongs to a house not in the new
 controller’s deck, they can make that house the active house during step
@@ -632,17 +673,21 @@ card abilities. The modified cost is referred to as the current cost.
 Damage a creature has taken is tracked by placing damage tokens on
 the creature. If a creature has an amount of damage on it equal to or
 greater than its power, the creature is destroyed. Damage on a creature
-does not reduce its power.
+does not reduce its power. If multiple creatures are damaged by a single
+effect, that damage is dealt simultaneously.
 
 For more details on damage and combat, see page 7.
 
-
 ### DESTROYED
 
-When a card is destroyed, it is placed in its owner’s discard pile.
+When a card is destroyed, it is placed in its owner’s discard pile. If
+multiple cards are destroyed simultaneously they are put into the discard
+pile(s) simultaneously and any non-”**Destroyed**:” abilities cannot trigger.
+(The active player determins what order the destroyed cards are put into the discard pile(s).)
 
-If a card has a “Destroyed:” ability, the effect resolves automatically
-when the card is destroyed, immediately before it leaves play.
+If a card has a **“Destroyed:”** ability, the effect automatically resolves
+immediately before the card would be destroyed, which is also before it
+leaves play.
 
 ### DISCARD PILE
 
@@ -704,6 +749,8 @@ the flanks of the line. A creature in this position is referred to as a flank
 creature. Any time a creature enters play or changes control, the active
 player chooses which flank of its controller’s battleine it is placed on.
 
+If a battleline only has one creature in it, that creature is on both the left and right flank and is considered a _flank_ creature.
+
 ### FORGE
 
 For details on forging keys, see page 4.
@@ -730,6 +777,11 @@ If an ability “heals” a creature, remove the specified amount of damage
 from the creature.
 
 If an ability “fully heals” a creature, remove all damage from the creature.
+
+Any creature can be chosen to be healed by a card effect that heals,
+even if it does not have any damage on it. However, if no damage is
+removed from the creature, it is not considered to have been “healed”
+for the purpose of card effects that reference healing.
 
 ### HOUSE CHOICE
 
@@ -775,6 +827,19 @@ considered “least powerful.”
 If an ability requires the selection of a single least powerful creature, and
 multiple creatures are tied, the active player chooses one.
 
+#### Groups of “Least Powerful”
+
+If a card effect refers to a group of “the X least powerful” creatures, it is
+referring to a number of creatures in play that have an equal or lower power
+than every creature that does not belong to that group. If there are not enough
+creatures with the lowest power to fulfill the group, then a creature with the
+next lowest power is eligible to be considered a part of the group. This
+continues until the group has been filled or there are no creatures remaining.
+If at any point multiple creatures are tied at the same power that could
+qualify them for the group, but there is not enough space in the group for each
+tied creature, the active player chooses which of the tied creatures are part
+of the group
+
 ### LEAVES PLAY
 
 If a card that is in play leaves play (is returned to hand or deck,
@@ -782,9 +847,19 @@ destroyed, discarded, archived, or purged), all non-Æmber tokens and
 status cards on the card are removed, all upgrades on the card are
 discarded, and all lasting effects applied to the card expire.
 
+When a card moves from an in–play zone to an out-of-play zone in which the
+identities of cards are hidden from the opponent (such as a player’s hand,
+deck, or archives), any pending effects that are currently or about to interact
+with that card no longer do so, unless a card effect explicitly states that it
+interacts with that zone.
+
 If a creature with Æmber on it leaves play, the Æmber is placed in the
 opponent’s Æmber pool. If a non-creature card with Æmber on it leaves
 play, the Æmber is returned to the general token pool.
+
+When a card leaves play it is always put into its owner’s appropriate
+out-of-play zone, unless a card effect explicitly states that it interacts with
+that zone.
 
 If a card has a “Leaves Play:” ability, the effect happens automatically
 immediately before the card leaves play.
@@ -815,6 +890,30 @@ If an ability requires the selection of a single most powerful creature,
 and multiple creatures are tied, the active player chooses among the
 tied creatures.
 
+#### Groups of “Most Powerful”
+
+If a card effect refers to a group of “the X most powerful” creatures, it is
+referring to a number of creatures in play that have an equal or higher power
+than every creature that does not belong to that group. If there are not enough
+creatures with the highest power to fulfill the group, then a creature with the
+next highest power is eligible to be considered a part of the group. This
+continues until the group has been filled or there are no creatures remaining.
+If at any point multiple creatures are tied at the same power that could
+qualify them for the group, but there is not enough space in the group for each
+tied creature, the active player chooses which of the tied creatures are part
+of the group.
+
+**Example**: Tom plays the action card “Three Fates (COTA 071) which reads, “**Play**:
+Destroy the 3 most powerful creatures.” In play there is an 8 power creature, a
+7 power creature, and two 5 power creatures. Tom must select 3 creatures to
+fill the group and must choose the 8 power creature as the first creature for
+the group. There are no other creatures in play that are tied for most
+powerful. In order to fill the group the next most powerful creature is
+selected, the 7 power creature. After this creature is selected, again there is
+no creature in play that is tied at 7 power, so a creature from the next
+highest power must be selected. Tom thus must choose one of the 5 power
+creatures to complete the group.
+
 ### MULLIGAN
 
 During setup, each player, starting with the first player, has one
@@ -825,6 +924,11 @@ one fewer card in it.
 After a player chooses to mulligan, that player must keep the new
 starting hand.
 
+If a player is using a deck that has chains applied to it at the start of the
+game and takes a mulligan, they do not shed a chain from the mulligan, but do
+draw one fewer card than they had before the mulligan as per the normal
+mulligan rules.
+
 ### NEIGHBOR
 
 The creatures to the immediate left and right of a creature in a player’s
@@ -834,7 +938,9 @@ battleline are its neighbors.
 
 The active player may trigger any **”Omni:“** abilities under their control
 during any of their turns, even if the card with the **”Omni:“** ability does
-not belong to the active house.
+not belong to the active house. When a player uses a creature to trigger its
+“**Omni:**” ability, the player exhausts the creature and then resolves the
+**“Omni:”** ability.
 
 ### OFF HOUSE
 
@@ -857,7 +963,7 @@ the paying player’s pool and added to the opponent’s pool.
 When a card has a **“Play:”** ability, the effect occurs any time the card
 is played. For creatures, artifacts, and upgrades, the ability resolves
 immediately after the card enters play. For action cards, the ability
-resolves, and then the card is placed in its owner’s discard pile.
+resolves, and then the card is immediately placed in its owner’s discard pile.
 
 If an ability “plays” a card from a source other than hand, **“Play:”**
 abilities on the card resolve. If an ability “puts” a card “into play,”
@@ -869,7 +975,7 @@ Any damage dealt via the power of a creature with the poison keyword
 during a fight destroys the damaged creature. This occurs when the
 damage is successfully applied to the opposing creature.
 
-Poison has no effect if all of the damage is absorbed by armor or
+Poison has no effect if all of the damage is prevented by armor or
 prevented by another ability—poison only resolves when one or more
 damage is successfully dealt.
 
@@ -981,10 +1087,11 @@ the ability steals only the amount remaining in the pool.
 
 ### STUN, STUN STATUS CARD
 
-When a creature becomes stunned, place a stun status card on it. The
-next time the creature is used, the only thing that happens is the creature
-exhausts and the stun card is removed. It does not reap or fight, and any
-**“Reap:,”** **“Fight:,”** or **“Action:”** abilities on the creature do not resolve.
+When a creature becomes stunned, place a stun status card on it. The next time that creature is used, the only effect of it being used is the creature exhausts and the stun status card is removed instead of anything else happening. The creature does not reap or fight, and any “**Reap**:,” “**Fight**:,” or **“Action:”** abilities on the creature do not resolve.
+
+If a card effect causes a creature to be used while it is stunned, the creature
+is exhausted and the stun status card is removed, just as if the creature had
+been used normally.
 
 Constant abilities and abilities that do not require the creature to reap,
 fight, or be used are still active.
@@ -992,7 +1099,9 @@ fight, or be used are still active.
 If a stunned creature is attacked, it still deals damage to the attacking
 creature during the fight.
 
-While a creature is stunned, it cannot become stunned again.
+While a creature is stunned, it cannot have another stun status card placed on
+it. If an effect attempts to stun a stunned creature that effect does not stun
+the already stunned creature.
 
 ### SWAP
 
@@ -1051,6 +1160,17 @@ and must be forged again to win the game.
 
 See “Using Cards” on page 6.
 
+<a name='errata'></a>
+
+# ERRATA
+
+This section conatins the official errata that have been made to individual
+cards in _KeyForge_. Errata overides the printed information on the card it
+applies to.
+
+## Biomatrix Backup (COTA 208)
+Should read: “This creature gains, ”**Destroyed**: Put this creature into its owner’s archives.””
+
 <a name='faq'></a>
 
 # FREQUENTLY ASKED QUESTIONS
@@ -1075,9 +1195,7 @@ triggering their effect multiple times.
 
 #### Its the first turn of the game and I am going first. I choose house Logos to be the active house and play the card Phase Shift (CoTA 117). Does this allow me to play another card this turn even though the First Turn Rule (see page 5) is in effect?
 
-Playing Phase Shift will not allow you to play any more cards from
-your hand this turn, since the First Turn Rule cannot be modified by
-card effects.
+Playing Phase Shift will allow you to play another card from your hand this turn, since the First Turn Rule can be modified by card effects.
 
 #### Its the first turn of the game and I am going first. I choose house Logos to be the active house and play the card Wild Wormhole (CoTA 125). Can Wild Wormhole’s effect be resolved even though the First Turn Rule (see page 5) is in effect?
 
@@ -1132,3 +1250,73 @@ following happens in this order:
 4. You gain Æmber from any Æmber bonus on the played card.
 5. You draw a card from Library Access’s effect.
 6. You resolve any play effects on the card played from the top of your deck.
+
+#### I have the card Pitlord (CoTA 093) in play and my opponent plays the card Restringuntus (CoTA 094) and chooses house Dis. What happens when I try to declare my house on my next turn?
+
+On your next turn, during the choose a house step, you will be in a position where you must choose house Dis (because of the Pitlord), but also cannot choose house Dis (because of the Restringuntus). Cannot effects have precedence over must effects, thus you cannot choose Dis. (see “Cannot Vs Must” on Page 9.) You may still choose either one of your other houses though.
+
+#### I have a Faygin (CoTA 300) in play and my opponent has an Urchin (CoTA 315) in play. I reap with Faygin and with its reap effect I choose my opponent’s Urchin. What happens?
+
+Faygin’s effect causes the Urchin to try and go into your hand, however when a card leaves play it always goes to its owner’s corresponding out of play zone (See “Leaves Play” on Page 11) unless the card causing it to leave play specifies otherwise. The Urchin is returned to your opponent’s hand instead of yours.
+
+#### I have 0 Æmber in my Æmber pool and have chosen house Logos to be my active house this turn. I play Wild Wormhole (CoTA 125) and try and play the top card of my deck is Kelifi Dragon (CoTA 037). What happens?
+
+The Kelifi Dragon is returned to the top of the deck. Kelifi Dragon has a play requirement of needing to have 7 Æmber in your Æmber pool, and since you didn’t have any initially (you now have 1 from playing the Wild Wormhole) you don’t have enough to be able to play the Kelifi Dragon. Since you can’t play the card it is returned to the place you tried to play it from, in this case the top of the deck.
+
+#### On my opponent’s turn they use their Yxilo Bolter (CoTA 204) to reap and choose to resolve its reap effect on my Bad Penny (CoTA 296). Is the Bad Penny purged or does it end up back in my hand?
+
+The Bad Penny goes back to your hand. **“Destroyed:”** effects (see “Destroyed” on Page 10) happen immediately before a creature is destroyed, meaning that Bad Penny is back in its owner’s hand before the Yxilo Bolter can try to purge it with its reap effect. At that point, any pending effects waiting to resolve on Bad Penny no longer do. This is because Bad Penny is moving to an out-of-play zone in which the identity of cards is hidden from the opponent (see “Leaves Play” on Page 11).
+
+#### I have a stunned creature in my battleline, play the card Anger (CoTA 001), and choose to resolve its effect on that stunned creature. What happens?
+
+If a card (such as Anger in this case) allows you to use a creature and if the creature you are trying to use is stunned, you remove the stun instead of doing anything else. Since Fighting is a type of being used the creature is exhausted and the stun counter is removed.
+
+This will even work if your opponent has no creatures in play, because unstunning replaces the normal “use” (in this case fight) of the card before it begins.
+
+#### I have chosen house Logos to be my active house this turn and play a Phase Shift (COTA 117) then play another copy of Phase Shift. How many non-Logos cards can I play this turn?
+
+You can play two non-Logos cards this turn. Each copy of Phase Shift that you play allows you to play an additional non-Logos card.
+
+#### I have a Stealer of Souls (CoTA 098) in play and my opponent has a Valdr (CoTA 029). I use my Stealer of Souls to fight Valdr and both creatures are destroyed. Does the Stealer of Souls’ ability trigger?
+
+No, the Stealer of Souls’ ability will not trigger. In order for the Stealer of Souls ability to trigger it must be in play, so if both the Stealer of Souls and the creature it is fighting die, they die simultaneously and the Stealer of Souls ability cannot trigger (see “Destroyed” on Page 10).
+
+#### I play the card Library Access (CoTA 115). Is the card immediately put in the discard pile? Or does it remain in play as long as the effect is active.
+
+Action cards are immediately put into the discard pile after their effects resolve. In the case of an Action card that has a lasting effect like Library Access, once the effect is established by resolving the card, the card is immediately put into the discard pile and does not remain in play.
+
+#### I have a Combat Pheromones (CoTA 180), “John Smyth” (CoTA 195), and Mindwarper (CoTA 196) in play. I sacrifice the Combat Pheromones and reap with the Mindwarper, and then reap with “John Smyth” and use “John Smyth’s” reap effect to ready the Mindwarper. Can I use the Mindwarper again?
+
+Yes, Combat Pheromones is granting permission to use a creature during that turn. If you have an effect that readies one of the Mars cards affected by the Combat Pheromones (Such as “John Smyth”), you will be able to use that card again.
+
+#### I play King of the Crag (CoTA 038) while my opponent has a Looter Goblin (CoTA 041) in play. What happens?
+
+The rules for damage state that “If a creature has as much or more damage on it as it has power, the creature is destroyed and placed on top of its owner’s discard pile.” When a creature has 0 power, if it has 0 damage on it, it is destroyed.
+
+#### My opponent has a Banner of Battle (CoTA 020) in play. Can I play the card Poltergeist (CoTA 069) to destroy the Banner of Battle, even if the artifact can’t be used?
+
+Yes, you can resolve the effect of Poltergeist on any artifact in play even if the artifact cannot be used. You just resolve as much of the card effect as you can (see “Resolve As Much As You Can” on Page 7), and to resolve this situation you just destroy the artifact.
+
+#### I have no creatures in play and my opponent has two. Can I play the card Lost in the Woods (CoTA 327) even though I don’t have two creatures in play?
+
+Yes you can. The “Resolve As Much As You Can” rule (see Page 7) says that you resolve as much of a card effect as possible and any part of a card you cannot resolve is ignored. In the context of Lost in the Woods, it means that you shuffle in as many of the creatures as you can. So in the case that your opponent has two or more creatures in their battleline and you have none, you will shuffle in two enemy creatures and no friendly creatures.
+
+#### I have an exhausted Bumpsy (CoTA 030) in play and my opponent has no creatures in their battleline. I play the card Anger (CoTA 001) and choose to resolve it on Bumpsy. What happens?
+
+The Bumpsy will be readied by the effect of Anger, but since there are no enemy creatures in play it cannot be used to fight so it stays ready. The creature can then be used as per the standard rules.
+
+#### I control a Spangler Box (CoTA 132) that has purged my own Kelifi Dragon (CoTA 037). The Spangler Box is returned to its owner’s hand with Grasping Vines (CoTA 324), but I don’t have any Æmber. Do I get my Kelifi Dragon back?
+
+Yes. The Kelifi Dragon is not being played when it is returned by the Spangler Box, it is being put into play. Being put into play bypasses the normal play restrictions, meaning that the Kelifi Dragon is put back into play no matter how much Æmber you have.
+
+#### I play Smaaash (CoTA 046), but each of my opponent’s creatures is already stunned. Do I have to resolve the effect against Smaaash itself?
+
+No. You may still choose to resolve Smaaash’s **“Play:”** effect against one of your opponent’s creatures, however you cannot put a stun counter on an already stunned creature so nothing will happen.
+
+#### My opponent puts two of my creatures into their archives using the card Sample Collection (CoTA 175). On my next turn I play the card Dysania (CoTA 141). What happens?
+
+Playing the Dysania will cause each of your opponent’s archived cards to be discarded, however since the Sample Collection states that when these creatures leave the archives they are put into their owner’s hand instead these cards are returned to your hand. Since these cards were not discarded by Dysania’s effect, you will not gain any Æmber from the resolution of that effect.
+
+#### I have Shadow Self (CoTA 310) with a Raiding Knight (CoTA 255) as a neighbor. My Raiding Knight is then attacked by a 4 power creature. How much damage does each creature take in this situation?
+
+In this case, the Shadow Self will take 2 damage, the Raiding Knight will take no damage, and the 4 power creature will take 4 damage and be destroyed. This happens because before the damage can be dealt to the Raiding Knight, two of it is prevented by its armor. Then when the damage is actually being dealt, the damage that would be dealt to the Raiding Knight is dealt to the Shadow Self instead. At the same time as the Shadow Self is being dealt damage, the 4 power creature takes 4 damage from the Raiding Knight’s power.
