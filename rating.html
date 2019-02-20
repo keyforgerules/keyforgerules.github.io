@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=e2193b9b5c50eb9ad1ef06e357857ddcf3b2533b">
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>Keyforge deck win percentages</title>
+    <style>th { text-align: left;} .hidden {display:none;} </style>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <h1>Keyforge deck scoring</h1>
+
+      <ul>
+          <li><a href='#lookup'>Lookup deck for AWP score</a></li>      
+          <li><a href='#about'>AWP score information</a></li>      
+          <li><a href='#cards'>Individual card WP score</a></li>
+          <li><a href='#house'>Individual house WP score</a></li>
+          <li><a href='#combo'>House combination WP score</a></li>
+          <li><a href='#top'>Top 100 decks</a></li>
+          <li><a href='#avrg'>Median 100 decks</a></li>
+          <li><a href='#bot'>Bottom 100 decks</a></li>
+          <li><a href='#graph'>AWP score distribution over all decks</a></li>
+      </ul>
+      
+      <table id="info">
+        <tbody>
+        </tbody>
+      </table>
+
+      <a name='lookup'></a>
+      <h1>Lookup deck for AWP score</h1>
+      <p>Enter a search term to search for a deck by name or enter a deck-id:</p>
+      <form onsubmit="return false;">
+        <input id='deckName' style='width: 300px;' placeholder='648dccfc-048f-4f07-8062-85bfc9e873c4' /> 
+        <button id='getRating'>Get rating</button>
+      </form>
+      <br />
+      <img src='ajax-loader.gif' class='hidden' id='loader' />
+
+      <table id="infoList">
+          <tbody>
+          </tbody>
+        </table>
+
+      <table id="cardList">
+          <thead>
+            <tr>
+              <th>Card name</th>
+              <th>House</th>
+              <th>Win Percentage</th>
+              <th>WP score</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+      <a name='about'></a>
+      <h1>AWP information</h1>
+      <p>
+        A decks Average Win Percentage is equal to the average Win Percentage score of each card in a deck 
+        <i>AWP = (sum(WPi) / 36)</i>. 
+        To normalize the data (humans don't like long decimal numbers) we calculate the AWP score around the mean (0.5), and show it as percent: 
+        <i>AWP score = (AWP - 0.5) * 100</i>.
+      </p>
+      <p>
+          Each cards Win Percentage (WP) is based on the amount of matches that has been recorded with decks that includes the card.
+          We count the total number of wins and losses for the card and calculate the Win Percentage:
+          <i>WP = Wins / (Wins + Losses)</i>. 
+      </p>
+      <p>
+        Some cards are rarer than others and might have less accurate averages. This will even out as more game are recorded.
+      </p>
+
+      <a name="cards"></a>
+      <h1>Individual card WP score</h1>
+      <table id="topList">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Card name</th>
+            <th>House</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Win Percentage</th>
+            <th>WP score</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      
+      <a name="house"></a>
+      <h1>Individual house WP score</h1>
+      <table id="houseList">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>House</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Win Percentage</th>
+            <th>WP score</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      
+      <a name="combo"></a>
+      <h1>House combination WP score</h1>
+      <table id="comboList">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>House Combination</th>
+            <th>Wins</th>
+            <th>Losses</th>
+            <th>Win Percentage</th>
+            <th>WP score</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+            
+      <a name="top"></a>
+      <h1>Top 100 decks</h1>
+      <table id="topDecks">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Deck name</th>
+            <th>AWP score</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      
+      <a name="avrg"></a>
+      <h1>Median 100 deck</h1>
+      <table id="avrgDecks">
+        <thead>
+          <tr>
+              <th>#</th>
+              <th>Deck name</th>
+              <th>AWP score</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      
+      <a name="bot"></a>
+      <h1>Bottom 100 decks</h1>
+      <table id="botDecks">
+        <thead>
+          <tr>
+              <th>#</th>
+              <th>Deck name</th>
+              <th>AWP score</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+      <a name="graph"></a>
+      <h1>AWP score distribution over all decks</h1>
+      <img src='graph.png' />
+
+      <script>
+        function numstr(val) { return Math.round(val * 1000) / 1000.0; }
+
+        ratings = {};
+        info = {};
+        
+        $.ajax({
+          url: 'info.json'
+        }).done(function(data) {
+          if (typeof(data) == "string")
+            data = JSON.parse(data);
+          info = data;
+          renderInfo(info);
+        });
+
+        function renderInfo(info) {
+          var $target = $('#info');
+          var $li = $('<tr><td class="key"><td class="val"></td></tr>');
+              $li.find('.key').text("Matches");
+              $li.find('.val').text(info.matches);
+              $li.appendTo($target);
+
+            var $li = $('<tr><td class="key"><td class="val"></td></tr>');
+              $li.find('.key').text("Last updated");
+              $li.find('.val').text(info.date.substr(0, 10));
+              $li.appendTo($target);
+
+          var $target = $('#houseList tbody').empty();
+          var num = 1;
+          var list = info.houses;
+          for (i in list) {
+            var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
+            $li.find('.num').text(num);
+            $li.find('.house').text(list[i].Name);
+            $li.find('.wins').text(list[i].Wins);
+            $li.find('.losses').text(list[i].Losses);
+            $li.find('.rating').text(numstr(list[i].Rating));
+            $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
+            $li.appendTo($target);
+            num++;
+          }
+
+          var $target = $('#comboList tbody').empty();
+          var num = 1;
+          var list = info.combos;
+          for (i in list) {
+            var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
+            $li.find('.num').text(num);
+            $li.find('.house').text(list[i].Name);
+            $li.find('.wins').text(list[i].Wins);
+            $li.find('.losses').text(list[i].Losses);
+            $li.find('.rating').text(numstr(list[i].Rating));
+            $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
+            $li.appendTo($target);
+            num++;
+          }
+        }
+
+        $.ajax({
+          url: 'card_rating.json'
+        }).done(function(data) {
+          if (typeof(data) == "string")
+            data = JSON.parse(data);
+
+          var cardDict = {};
+          for (key in data) {
+            cardDict[data[key].name] = data[key];
+          }
+
+          ratings = cardDict;
+          renderTop(ratings);
+        });
+
+        $.ajax({
+          url: 'top.json'
+        }).done(function(data) {
+          if (typeof(data) == "string")
+            data = JSON.parse(data);
+
+          renderTopDecks('#topDecks', data.top);
+          renderTopDecks('#avrgDecks', data.average);
+          renderTopDecks('#botDecks', data.bottom);
+
+          var $target = $('#info');
+          var $li = $('<tr><td class="key"><td class="val"></td></tr>');
+              $li.find('.key').text("Highest deck AWP score");
+              $li.find('.val').text(numstr(data.top[0].Awp));
+              $li.appendTo($target);
+
+          var $target = $('#info');
+          var $li = $('<tr><td class="key"><td class="val"></td></tr>');
+              $li.find('.key').text("Median deck AWP score");
+              $li.find('.val').text(numstr(data.average[0].Awp));
+              $li.appendTo($target);
+
+          var $target = $('#info');
+          var $li = $('<tr><td class="key"><td class="val"></td></tr>');
+              $li.find('.key').text("Lowest deck AWP score");
+              $li.find('.val').text(numstr(data.bottom[0].Awp));
+              $li.appendTo($target);
+        });
+
+        function renderTopDecks(div, list) {
+          var $target = $(div + ' tbody').empty();
+          var num = 1;
+          for (i in list) {
+            var $li = $('<tr><td class="num"></td><td class="name"></td><td class="awp"></td></tr>');
+            $li.find('.num').text(num);
+            $li.find('.name').html('<a href="https://keyforge-compendium.com/decks/'+list[i].Id+'">' + list[i].Name + "</a>");
+            $li.find('.awp').text(numstr(list[i].Awp));
+            $li.appendTo($target);
+            num++;
+          }
+        }
+
+        function renderTop(list) {
+          var $target = $('#topList tbody').empty();
+          var num = 1;
+          for (i in list) {
+            var $li = $('<tr><td class="num"></td><td class="name"></td><td class="house"></td><td class="wins"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
+            $li.find('.num').text(num);
+            $li.find('.name').text(list[i].name);
+            $li.find('.house').text(list[i].house);
+            $li.find('.wins').text(list[i].Wins);
+            $li.find('.losses').text(list[i].Losses);
+            $li.find('.rating').text(numstr(list[i].rating));
+            $li.find('.awp').text(numstr(list[i].awp));
+            $li.appendTo($target);
+            num++;
+          }
+        }
+
+        $('#getRating').on('click', function() {
+          var $info = $('#infoList').empty();
+          var $cards = $('#cardList tbody').empty();
+          $('#loader').toggleClass('hidden', false);
+
+          var name = $('#deckName').val().trim();
+          var search = 'https://www.keyforgegame.com/api/decks/?page=1&page_size=1&links=cards&search=' + name;
+          var guid = 'https://www.keyforgegame.com/api/decks/'+ name +'/?links=cards';
+
+          var isGuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(name);;  
+          if (isGuid) {
+            $.ajax({
+               url: 'https://cors-anywhere.herokuapp.com/' + guid,
+               crossDomain: true 
+              }).done(function(data) { DisplayDeck(data.data, data._linked.cards); });
+          } else {
+            $.ajax({ 
+              url: 'https://cors-anywhere.herokuapp.com/' + search,
+              crossDomain: true 
+            }).done(function(data) { DisplayDeck(data.data[0], data._linked.cards); });
+          }
+        });//.trigger('click');
+
+        function DisplayDeck(data, cards) {
+          $('#loader').toggleClass('hidden', true);
+
+          var cardDict = {};
+          for (key in cards) {
+            cardDict[cards[key].id] = cards[key];
+          }
+
+          var $info = $('#infoList').empty();
+          var $li = $('<tr><th class="key"></th><th class="val"></th></tr>');
+            $li.find('.key').text("Name");
+            $li.find('.val').text(data.name);
+            $li.appendTo($info);
+
+          var $cards = $('#cardList tbody').empty();
+
+          var sum = 0;
+          var hsum = {};
+          for (i in data._links.cards) {
+            var id = data._links.cards[i];
+            var card = cardDict[id];
+            var rating = ratings[card.card_title].rating;
+            var awp = ratings[card.card_title].awp;
+            sum += rating;
+            hsum[card.house] = (hsum[card.house] || 0) + rating;
+
+            var $li = $('<tr><td class="name"></td><td class="house"></td><td class="rating"></td><td class="awp"></td></tr>');
+              $li.find('.name').text(card.card_title);
+              $li.find('.house').text(card.house);
+              $li.find('.rating').text(numstr(rating));
+              $li.find('.awp').text(numstr(awp));
+              $li.appendTo($cards);
+          }
+
+          var $li = $('<tr><th class="key"></th><th class="val"></th></tr>');
+            $li.find('.key').text("Total AWP score");
+            $li.find('.val').text(numstr(((sum / 36.0) - 0.5) * 100));
+            $li.appendTo($info);
+            
+          var $li = $('<tr><td class="key"></td><td class="val"></td></tr>');
+            $li.find('.key').text("Id");
+            $li.find('.val').text(data.id);
+            $li.appendTo($info);
+
+          for (key in hsum) {
+            var $li = $('<tr><td class="key"></td><td class="val"></td></tr>');
+            $li.find('.key').text("AWP score for " + key);
+            $li.find('.val').text(numstr(((hsum[key] / 12.0) - 0.5) * 100));
+            $li.appendTo($info);
+          }
+        }
+      </script>
+   
+    </div>
+  </body>
+</html>
