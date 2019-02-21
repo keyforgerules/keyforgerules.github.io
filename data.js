@@ -28,10 +28,11 @@ function renderInfo(info) {
   var num = 1;
   var list = info.houses;
   for (i in list) {
-    var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
+    var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="winsa"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
     $li.find('.num').text(num);
     $li.find('.house').text(list[i].Name);
     $li.find('.wins').text(list[i].Wins);
+    $li.find('.winsa').text(numstr(list[i].WinsAdjusted));
     $li.find('.losses').text(list[i].Losses);
     $li.find('.rating').text(numstr(list[i].Rating * 100) + '%');
     $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
@@ -43,10 +44,11 @@ function renderInfo(info) {
   var num = 1;
   var list = info.combos;
   for (i in list) {
-    var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
+    var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="winsa"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
     $li.find('.num').text(num);
     $li.find('.house').text(list[i].Name);
     $li.find('.wins').text(list[i].Wins);
+    $li.find('.winsa').text(numstr(list[i].WinsAdjusted));
     $li.find('.losses').text(list[i].Losses);
     $li.find('.rating').text(numstr(list[i].Rating * 100) + '%');
     $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
@@ -116,11 +118,12 @@ function renderTop(list) {
   var $target = $('#topList tbody').empty();
   var num = 1;
   for (i in list) {
-    var $li = $('<tr><td class="num"></td><td class="name"></td><td class="house"></td><td class="wins"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
+    var $li = $('<tr><td class="num"></td><td class="name"></td><td class="house"></td><td class="wins"></td><td class="winsa"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
     $li.find('.num').text(num);
     $li.find('.name').text(list[i].name);
     $li.find('.house').text(list[i].house);
     $li.find('.wins').text(list[i].Wins);
+    $li.find('.winsa').text(numstr(list[i].WinsAdjusted));
     $li.find('.losses').text(list[i].Losses);
     $li.find('.rating').text(numstr(list[i].rating * 100)+ '%');
     $li.find('.awp').text(numstr(list[i].awp));
