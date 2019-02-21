@@ -1,7 +1,7 @@
 function numstr(val) { return Math.round(val * 1000) / 1000.0; }
 
-ratings = {};
-info = {};
+var ratings = {};
+var info = {};
 
 $.ajax({
   url: 'info.json'
@@ -33,7 +33,7 @@ function renderInfo(info) {
     $li.find('.house').text(list[i].Name);
     $li.find('.wins').text(list[i].Wins);
     $li.find('.losses').text(list[i].Losses);
-    $li.find('.rating').text(numstr(list[i].Rating));
+    $li.find('.rating').text(numstr(list[i].Rating * 100) + '%');
     $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
     $li.appendTo($target);
     num++;
@@ -48,7 +48,7 @@ function renderInfo(info) {
     $li.find('.house').text(list[i].Name);
     $li.find('.wins').text(list[i].Wins);
     $li.find('.losses').text(list[i].Losses);
-    $li.find('.rating').text(numstr(list[i].Rating));
+    $li.find('.rating').text(numstr(list[i].Rating * 100) + '%');
     $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
     $li.appendTo($target);
     num++;
@@ -122,7 +122,7 @@ function renderTop(list) {
     $li.find('.house').text(list[i].house);
     $li.find('.wins').text(list[i].Wins);
     $li.find('.losses').text(list[i].Losses);
-    $li.find('.rating').text(numstr(list[i].rating));
+    $li.find('.rating').text(numstr(list[i].rating * 100)+ '%');
     $li.find('.awp').text(numstr(list[i].awp));
     $li.appendTo($target);
     num++;
@@ -135,16 +135,20 @@ $('#getRating').on('click', function() {
   $('#loader').toggleClass('hidden', false);
 
   var name = $('#deckName').val().trim();
-  var search = 'https://www.keyforgegame.com/api/decks/?page=1&page_size=1&links=cards&search=' + name;
-  var guid = 'https://www.keyforgegame.com/api/decks/'+ name +'/?links=cards';
 
-  var isGuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(name);;  
+  var isGuid = /[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(name);;  
   if (isGuid) {
+
+    var name = name.substr(length-36);
+    var guid = 'https://www.keyforgegame.com/api/decks/'+ name +'/?links=cards';
+
     $.ajax({
        url: 'https://cors-anywhere.herokuapp.com/' + guid,
        crossDomain: true 
       }).done(function(data) { DisplayDeck(data.data, data._linked.cards); });
   } else {
+    var search = 'https://www.keyforgegame.com/api/decks/?page=1&page_size=1&links=cards&search=' + name;
+
     $.ajax({ 
       url: 'https://cors-anywhere.herokuapp.com/' + search,
       crossDomain: true 
@@ -181,7 +185,7 @@ function DisplayDeck(data, cards) {
     var $li = $('<tr><td class="name"></td><td class="house"></td><td class="rating"></td><td class="awp"></td></tr>');
       $li.find('.name').text(card.card_title);
       $li.find('.house').text(card.house);
-      $li.find('.rating').text(numstr(rating));
+      $li.find('.rating').text(numstr(rating * 100) + '%');
       $li.find('.awp').text(numstr(awp));
       $li.appendTo($cards);
   }
