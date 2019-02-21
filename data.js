@@ -12,31 +12,28 @@ $.ajax({
   renderInfo(info);
 });
 
+function AddLine(data, $target) {
+  var $row = $('<tr></tr>');
+  for (key in data) {
+    var $col = $('<td></td>').html(data[key]);
+    $col.appendTo($row);
+  }
+  $row.appendTo($target);
+}
+
 function renderInfo(info) {
   var $target = $('#info');
-  var $li = $('<tr><td class="key"><td class="val"></td></tr>');
-      $li.find('.key').text("Matches");
-      $li.find('.val').text(info.matches);
-      $li.appendTo($target);
-
-    var $li = $('<tr><td class="key"><td class="val"></td></tr>');
-      $li.find('.key').text("Last updated");
-      $li.find('.val').text(info.date.substr(0, 10));
-      $li.appendTo($target);
+  AddLine(["Matches", info.matches], $target);
+  AddLine(["Decks", info.decks], $target);
+  AddLine(["Last updated", info.date.substr(0, 10)], $target);
 
   var $target = $('#houseList tbody').empty();
   var num = 1;
   var list = info.houses;
   for (i in list) {
-    var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="winsa"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
-    $li.find('.num').text(num);
-    $li.find('.house').text(list[i].Name);
-    $li.find('.wins').text(list[i].Wins);
-    $li.find('.winsa').text(numstr(list[i].WinsAdjusted));
-    $li.find('.losses').text(list[i].Losses);
-    $li.find('.rating').text(numstr(list[i].Rating * 100) + '%');
-    $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
-    $li.appendTo($target);
+    AddLine([
+      num, list[i].Name, list[i].Wins, numstr(list[i].WinsAdjusted), list[i].Losses,  numstr(list[i].Rating * 100) + '%', numstr((list[i].Rating - 0.5)*100)
+    ], $target);
     num++;
   }
 
@@ -44,15 +41,9 @@ function renderInfo(info) {
   var num = 1;
   var list = info.combos;
   for (i in list) {
-    var $li = $('<tr><td class="num"></td><td class="house"></td><td class="wins"></td><td class="winsa"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
-    $li.find('.num').text(num);
-    $li.find('.house').text(list[i].Name);
-    $li.find('.wins').text(list[i].Wins);
-    $li.find('.winsa').text(numstr(list[i].WinsAdjusted));
-    $li.find('.losses').text(list[i].Losses);
-    $li.find('.rating').text(numstr(list[i].Rating * 100) + '%');
-    $li.find('.awp').text(numstr((list[i].Rating - 0.5)*100));
-    $li.appendTo($target);
+    AddLine([
+      num, list[i].Name, list[i].Wins, numstr(list[i].WinsAdjusted), list[i].Losses, numstr(list[i].Rating * 100) + '%', numstr((list[i].Rating - 0.5)*100)
+    ], $target);
     num++;
   }
 }
@@ -65,12 +56,24 @@ $.ajax({
 
   var cardDict = {};
   for (key in data) {
-    cardDict[data[key].name] = data[key];
+    cardDict[data[key].Name] = data[key];
   }
-
   ratings = cardDict;
-  renderTop(ratings);
+
+  renderTop(data);
 });
+
+function renderTop(list) {
+  var $target = $('#topList tbody').empty();
+  var num = 1;
+  for (i in list) {
+    AddLine([
+      num, list[i].Name, list[i].House, list[i].Wins, numstr(list[i].WinsAdjusted), list[i].Losses,
+       numstr(list[i].Rating * 100)+ '%', numstr(list[i].Awp)
+    ], $target);
+    num++;
+  }
+}
 
 $.ajax({
   url: 'top.json'
@@ -78,56 +81,21 @@ $.ajax({
   if (typeof(data) == "string")
     data = JSON.parse(data);
 
-  renderTopDecks('#topDecks', data.top);
-  renderTopDecks('#avrgDecks', data.average);
-  renderTopDecks('#botDecks', data.bottom);
+  renderTopDecks('#topDecks', data.Top);
+  renderTopDecks('#avrgDecks', data.Average);
+  renderTopDecks('#botDecks', data.Bottom);
 
   var $target = $('#info');
-  var $li = $('<tr><td class="key"><td class="val"></td></tr>');
-      $li.find('.key').text("Highest deck AWP score");
-      $li.find('.val').text(numstr(data.top[0].Awp));
-      $li.appendTo($target);
-
-  var $target = $('#info');
-  var $li = $('<tr><td class="key"><td class="val"></td></tr>');
-      $li.find('.key').text("Median deck AWP score");
-      $li.find('.val').text(numstr(data.average[0].Awp));
-      $li.appendTo($target);
-
-  var $target = $('#info');
-  var $li = $('<tr><td class="key"><td class="val"></td></tr>');
-      $li.find('.key').text("Lowest deck AWP score");
-      $li.find('.val').text(numstr(data.bottom[0].Awp));
-      $li.appendTo($target);
+  AddLine(["Highest deck AWP score", numstr(data.Top[0].Awp)], $target);
+  AddLine(["Median deck AWP score", numstr(data.Average[0].Awp)], $target);
+  AddLine(["Lowest deck AWP score", numstr(data.Bottom[0].Awp)], $target);
 });
 
 function renderTopDecks(div, list) {
   var $target = $(div + ' tbody').empty();
   var num = 1;
   for (i in list) {
-    var $li = $('<tr><td class="num"></td><td class="name"></td><td class="awp"></td></tr>');
-    $li.find('.num').text(num);
-    $li.find('.name').html('<a href="https://keyforge-compendium.com/decks/'+list[i].Id+'">' + list[i].Name + "</a>");
-    $li.find('.awp').text(numstr(list[i].Awp));
-    $li.appendTo($target);
-    num++;
-  }
-}
-
-function renderTop(list) {
-  var $target = $('#topList tbody').empty();
-  var num = 1;
-  for (i in list) {
-    var $li = $('<tr><td class="num"></td><td class="name"></td><td class="house"></td><td class="wins"></td><td class="winsa"></td><td class="losses"></td><td class="rating"></td><td class="awp"></td></tr>');
-    $li.find('.num').text(num);
-    $li.find('.name').text(list[i].name);
-    $li.find('.house').text(list[i].house);
-    $li.find('.wins').text(list[i].Wins);
-    $li.find('.winsa').text(numstr(list[i].WinsAdjusted));
-    $li.find('.losses').text(list[i].Losses);
-    $li.find('.rating').text(numstr(list[i].rating * 100)+ '%');
-    $li.find('.awp').text(numstr(list[i].awp));
-    $li.appendTo($target);
+    AddLine([num, '<a href="https://www.keyforgegame.com/deck-details/'+list[i].Id+'">' + list[i].Name + "</a>", numstr(list[i].Awp)], $target);
     num++;
   }
 }
@@ -168,10 +136,7 @@ function DisplayDeck(data, cards) {
   }
 
   var $info = $('#infoList').empty();
-  var $li = $('<tr><th class="key"></th><th class="val"></th></tr>');
-    $li.find('.key').text("Name");
-    $li.find('.val').text(data.name);
-    $li.appendTo($info);
+  AddLine(["Name", data.name], $info);
 
   var $cards = $('#cardList tbody').empty();
 
@@ -180,33 +145,18 @@ function DisplayDeck(data, cards) {
   for (i in data._links.cards) {
     var id = data._links.cards[i];
     var card = cardDict[id];
-    var rating = ratings[card.card_title].rating;
-    var awp = ratings[card.card_title].awp;
+    var rating = ratings[card.card_title].Rating;
+    var awp = ratings[card.card_title].Awp;
     sum += rating;
     hsum[card.house] = (hsum[card.house] || 0) + rating;
 
-    var $li = $('<tr><td class="name"></td><td class="house"></td><td class="rating"></td><td class="awp"></td></tr>');
-      $li.find('.name').text(card.card_title);
-      $li.find('.house').text(card.house);
-      $li.find('.rating').text(numstr(rating * 100) + '%');
-      $li.find('.awp').text(numstr(awp));
-      $li.appendTo($cards);
+    AddLine([card.card_title, card.house, numstr(rating * 100) + '%', numstr(awp)], $cards);
   }
 
-  var $li = $('<tr><th class="key"></th><th class="val"></th></tr>');
-    $li.find('.key').text("Total AWP score");
-    $li.find('.val').text(numstr(((sum / 36.0) - 0.5) * 100));
-    $li.appendTo($info);
-    
-  var $li = $('<tr><td class="key"></td><td class="val"></td></tr>');
-    $li.find('.key').text("Id");
-    $li.find('.val').text(data.id);
-    $li.appendTo($info);
+  AddLine(["Total AWP score", numstr(((sum / 36.0) - 0.5) * 100)], $info);
+  AddLine(["Id", data.id], $info);
 
   for (key in hsum) {
-    var $li = $('<tr><td class="key"></td><td class="val"></td></tr>');
-    $li.find('.key').text("AWP score for " + key);
-    $li.find('.val').text(numstr(((hsum[key] / 12.0) - 0.5) * 100));
-    $li.appendTo($info);
+    AddLine(["AWP score for " + key, numstr(((hsum[key] / 12.0) - 0.5) * 100)], $info);
   }
 }
