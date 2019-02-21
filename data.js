@@ -153,10 +153,55 @@ function DisplayDeck(data, cards) {
     AddLine([card.card_title, card.house, numstr(rating * 100) + '%', numstr(awp)], $cards);
   }
 
-  AddLine(["Total AWP score", numstr(((sum / 36.0) - 0.5) * 100)], $info);
+  var awp = ((sum / 36.0) - 0.5) * 100;
+  var percentile = numstr(calcPercentile(awp) * 100) + '%';
+  AddLine(["Total AWP score", numstr(awp)], $info);
+  AddLine(["Deck percentile", percentile], $info);
   AddLine(["Id", data.id], $info);
 
   for (key in hsum) {
     AddLine(["AWP score for " + key, numstr(((hsum[key] / 12.0) - 0.5) * 100)], $info);
   }
+}
+
+var graphData;
+$.ajax({
+  url: 'graph.json'
+}).done(function(data) {
+  if (typeof(data) == "string")
+    data = JSON.parse(data);
+  graphData = ToLine(data);
+});
+
+function calcPercentile(val) {
+  var line = graphData;
+  val = parseFloat(val);
+  if (val <= line[0][0]) return 0;
+  if (val >= line[line.length - 1][0]) return 1;
+  var accu = 0;
+  for (var i = 1; i < line.length; i++)
+  {
+    if (val >= line[i - 1][0] && val < line[i][0]) {
+      var x0 = line[i - 1][0];
+      var x1 = line[i][0];
+      var y0 = line[i - 1][1];
+      var y1 = line[i][1];
+
+      return accu + y0 + (y1 - y0) * (val - x0) * (x1 - x0);
+    }
+
+    accu = accu + line[i][1];
+  }
+}
+
+function ToLine(data) {
+  var line = [[data[0].x0, 0]];
+  var sum = 0;
+  for (var i = 0; i < data.length; i++) {
+    sum += data[i].y;
+  }  
+  for (var i = 0; i < data.length; i++) {
+    line.push([data[i].x1, data[i].y / sum]);
+  }
+  return line;
 }
