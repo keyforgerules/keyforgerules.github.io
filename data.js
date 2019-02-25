@@ -178,7 +178,6 @@ function calcPercentile(val) {
   val = parseFloat(val);
   if (val <= line[0][0]) return 0;
   if (val >= line[line.length - 1][0]) return 1;
-  var accu = 0;
   for (var i = 1; i < line.length; i++)
   {
     if (val >= line[i - 1][0] && val < line[i][0]) {
@@ -187,10 +186,8 @@ function calcPercentile(val) {
       var y0 = line[i - 1][1];
       var y1 = line[i][1];
 
-      return accu + y0 + (y1 - y0) * (val - x0) * (x1 - x0);
+      return  y0 + (y1 - y0) * (val - x0) * (x1 - x0);
     }
-
-    accu = accu + line[i][1];
   }
 }
 
@@ -200,8 +197,10 @@ function ToLine(data) {
   for (var i = 0; i < data.length; i++) {
     sum += data[i].y;
   }  
+  var accu = 0;
   for (var i = 0; i < data.length; i++) {
-    line.push([data[i].x1, data[i].y / sum]);
+    accu += data[i].y;
+    line.push([data[i].x1, accu / sum]);
   }
   return line;
 }
