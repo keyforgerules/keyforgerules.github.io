@@ -1,8 +1,8 @@
+function numstr(val) { return Math.round(val * 1000) / 1000.0; }
+
 var ratings = {};
 var info = {};
 var debug = window.location.href.indexOf('debug') > -1;
-
-function numstr(val) { return Math.round(val * 1000) / 1000.0; }
 
 $.ajax({
   url: 'info.json'
