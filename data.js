@@ -1,8 +1,8 @@
-function numstr(val) { return Math.round(val * 1000) / 1000.0; }
-
 var ratings = {};
 var info = {};
 var debug = window.location.href.indexOf('debug') > -1;
+
+function numstr(val) { return Math.round(val * 1000) / 1000.0; }
 
 $.ajax({
   url: 'info.json'
@@ -57,7 +57,7 @@ $.ajax({
 
   var cardDict = {};
   for (key in data) {
-    cardDict[data[key].Name] = data[key];
+    cardDict[data[key].Id] = data[key];
   }
   ratings = cardDict;
 
@@ -155,8 +155,10 @@ function DisplayDeck(data, cards) {
     var card = cardDict[id];
     if (debug) console.log('> card ', card);
 
-    var rating = ratings[card.card_title].Rating;
-    var awp = ratings[card.card_title].Awp;
+    var cardId = card.expansion + '_' + card.card_number;
+
+    var rating = ratings[cardId].Rating;
+    var awp = ratings[cardId].Awp;
     sum += rating;
     hsum[card.house] = (hsum[card.house] || 0) + rating;
 
