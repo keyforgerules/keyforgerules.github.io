@@ -183,6 +183,7 @@ $.ajax({
   if (typeof(data) == "string")
     data = JSON.parse(data);
   graphData = ToLine(data);
+  CreateGraph(data);
 });
 
 function calcPercentile(val) {
@@ -215,4 +216,47 @@ function ToLine(data) {
     line.push([data[i].x1, accu / sum]);
   }
   return line;
+}
+
+function CreateGraph(data) {
+  var color = Chart.helpers.color;
+  var labels = [];
+  var values = [];
+  for (key in data) {
+    labels.push(Math.round(data[key].xm*100)/100);
+    values.push(data[key].y);
+  }
+  var barChartData = {
+    labels: labels,
+    datasets: [{
+      label: 'Number of decks',
+      backgroundColor: color("blue").alpha(0.5).rgbString(),
+      borderColor: "blue",
+      borderWidth: 1,
+      data: values
+    }]
+  };
+
+  var ctx = document.getElementById('canvas').getContext('2d');
+  window.myBar = new Chart(ctx, {
+    type: 'bar',
+    data: barChartData,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+      scales: {
+        yAxes: [{ scaleLabel: {
+          display: true,
+          labelString: 'Deck count'
+        } }],
+        xAxes: [{ scaleLabel: {
+          display: true,
+          labelString: 'AWP score'
+        } }],
+      }
+    }
+  });
 }

@@ -8,6 +8,7 @@
     <link rel="apple-touch-icon" href="favicon.png" />
     <link rel="stylesheet" href="https://keyforgerules.github.io/assets/css/style.css?v=e2193b9b5c50eb9ad1ef06e357857ddcf3b2533b">
     <script src="jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     <title>Keyforge deck win percentages</title>
     <style>th { text-align: left;} .hidden {display:none;} </style>
   </head>
@@ -185,7 +186,9 @@
 
       <a name="graph"></a>
       <h1>AWP score distribution over all decks</h1>
-      <img src='graph.png' />
+      <div style='position: relative; width: 600px; height: 400px;'>
+        <canvas id="canvas" width="600" height="400" class="chartjs-render-monitor" style="display: block; width: 600px; height: 400px;"></canvas>
+      </div>
 
       <script src="data.js"></script>
 
