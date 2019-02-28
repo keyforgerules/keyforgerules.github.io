@@ -1,7 +1,8 @@
-function numstr(val) { return Math.round(val * 1000) / 1000.0; }
-
 var ratings = {};
 var info = {};
+var debug = window.location.href.indexOf('debug') > -1;
+
+function numstr(val) { return Math.round(val * 1000) / 1000.0; }
 
 $.ajax({
   url: 'info.json'
@@ -130,10 +131,15 @@ $('#getRating').on('click', function() {
 function DisplayDeck(data, cards) {
   $('#loader').toggleClass('hidden', true);
 
+  if (debug) console.log('data', JSON.stringify(data));
+  if (debug) console.log('cards', JSON.stringify(cards));
+
   var cardDict = {};
   for (key in cards) {
     cardDict[cards[key].id] = cards[key];
   }
+
+  if (debug) console.log('dictionary', JSON.stringify(cardDict));
 
   var $info = $('#infoList').empty();
   AddLine(["Name", data.name], $info);
@@ -144,7 +150,11 @@ function DisplayDeck(data, cards) {
   var hsum = {};
   for (i in data._links.cards) {
     var id = data._links.cards[i];
+    if (debug) console.log('Add card ', id);
+
     var card = cardDict[id];
+    if (debug) console.log('> card ', card);
+
     var rating = ratings[card.card_title].Rating;
     var awp = ratings[card.card_title].Awp;
     sum += rating;
