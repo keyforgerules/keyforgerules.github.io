@@ -5,7 +5,9 @@
 * [Glossary](#glossary)
 * [Errata](#errata)
 * [FAQ](#faq)
+
 * [Link to the Rules-PDF](https://kop-cdn.keyforgegame.com/filer_public/30/03/30032847-fa82-46a3-a28b-984efc5a91ca/keyforge_rulebook_v8-compressed.pdf)
+* [Look up deck rating](/awp.html)
 
 <a name='intro'></a>
 
