@@ -33,7 +33,7 @@ function renderInfo(info) {
   var list = info.houses;
   for (i in list) {
     AddLine([
-      num, list[i].Name, list[i].Wins, numstr(list[i].WinsAdjusted), list[i].Losses,  numstr(list[i].Rating * 100) + '%', numstr((list[i].Rating - 0.5)*100)
+      num, list[i].Name, list[i].Wins, numstr(list[i].WinsWithAdjusted), list[i].Losses,  numstr(list[i].Rating * 100) + '%', numstr(list[i].RatingWithout * 100) + '%', numstr(list[i].AdjustedAwp)
     ], $target);
     num++;
   }
@@ -43,7 +43,7 @@ function renderInfo(info) {
   var list = info.combos;
   for (i in list) {
     AddLine([
-      num, list[i].Name, list[i].Wins, numstr(list[i].WinsAdjusted), list[i].Losses, numstr(list[i].Rating * 100) + '%', numstr((list[i].Rating - 0.5)*100)
+      num, list[i].Name, list[i].Wins, numstr(list[i].WinsWithAdjusted), list[i].Losses, numstr(list[i].Rating * 100) + '%', numstr(list[i].RatingWithout * 100) + '%', numstr(list[i].AdjustedAwp)
     ], $target);
     num++;
   }
@@ -70,7 +70,7 @@ function renderTop(list) {
   for (i in list) {
     AddLine([
       num, list[i].Name, list[i].House, list[i].Wins, numstr(list[i].WinsAdjusted), list[i].Losses,
-       numstr(list[i].Rating * 100)+ '%', numstr(list[i].Awp)
+       numstr(list[i].With * 100)+ '%', numstr(list[i].Without * 100)+ '%', numstr(list[i].Awp)
     ], $target);
     num++;
   }

@@ -65,20 +65,26 @@
       <a name='about'></a>
       <h1>AWP information</h1>
       <p>
-        A decks Average Win Percentage is equal to the average Win Percentage score of each card in a deck 
-        <i>AWP = (sum(WPi) / 36)</i>. 
-        To normalize the data (humans don't like long decimal numbers) we calculate the AWP score around the mean (0.5), and show it as percent: 
-        <i>AWP score = (AWP - 0.5) * 100</i>.
+        Each cards Win Percentage (WP) is based on the amount of matches that has been recorded with decks that includes the card.
+        We count the total number of wins and losses for the card and calculate the Win Percentage:
+        <i>WP = Wins_b / (Wins_b + Losses)</i>. <br />
+      </p>
+      <p>
+        A decks Average Win Percentage is equal to the average Win Percentage score of each card in a deck: <br />
+        <i>AWP = (sum(WP_with - WP_without) / 36)</i>. <br />
+        Where WP_with is equal to the win percentage of all decks featuring the card, and WP_without is equal to the win percentage of all decks
+        of the the same house without the card.
+      </p>
+      <p>
+        Note that we are simply measuring the relative amount any card improves a deck. 
+        This removes the bias of some houses/house combinations, such as Shadows, which on average have a higher win percentages than other decks.
+        This gives us a more accurate representation of what is the good and bad card to have in any Individual deck, but it 
+        means that we cannot to some extent compare score absolutly accross houses.
       </p>
       <p>
           Since tournaments often ends up with an odd number of poeple, a lot of byes are expected. This skews the data to have more wins than losses.
           If we assume all byes comes from real byes, and not walkovers, we can adjust all wins by the factor of total byes:
           <i>Wins_b = Wins * [1 - (wins - losses)/(wins + losses)]</i>. 
-      </p>
-      <p>
-          Each cards Win Percentage (WP) is based on the amount of matches that has been recorded with decks that includes the card.
-          We count the total number of wins and losses for the card and calculate the Win Percentage:
-          <i>WP = Wins_b / (Wins_b + Losses)</i>. <br />
       </p>
       <p>
         Some cards are rarer than others and might have less accurate averages. This will even out as more game are recorded.
@@ -95,7 +101,8 @@
             <th>Wins</th>
             <th>Wins - Byes</th>
             <th>Losses</th>
-            <th>Win Percentage</th>
+            <th>Win %</th>
+            <th>Win % without</th>
             <th>AWP</th>
           </tr>
         </thead>
@@ -114,7 +121,8 @@
             <th>Wins</th>
             <th>Wins - Byes</th>
             <th>Losses</th>
-            <th>Win Percentage</th>
+            <th>Win %</th>
+            <th>Win % without</th>
             <th>WP score</th>
           </tr>
         </thead>
@@ -133,7 +141,8 @@
             <th>Wins</th>
             <th>Wins - Byes</th>
             <th>Losses</th>
-            <th>Win Percentage</th>
+            <th>Win %</th>
+            <th>Win % without</th>
             <th>WP score</th>
           </tr>
         </thead>
