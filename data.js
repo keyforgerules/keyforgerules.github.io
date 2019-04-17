@@ -96,7 +96,7 @@ function renderTopDecks(div, list) {
   var $target = $(div + ' tbody').empty();
   var num = 1;
   for (i in list) {
-    AddLine([num, '<a href="https://www.keyforgegame.com/deck-details/'+list[i].Id+'">' + list[i].Name + "</a>", numstr(list[i].Awp)], $target);
+    AddLine([num, '<a href="https://www.keyforgegame.com/deck-details/'+list[i].Id+'">' + list[i].Name + "</a>", numstr(list[i].Awp), list[i].PowerLevel, list[i].Wins, list[i].Losses, list[i].Chains], $target);
     num++;
   }
 }
