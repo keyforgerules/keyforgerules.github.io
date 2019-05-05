@@ -155,7 +155,8 @@ function DisplayDeck(data, cards) {
     var card = cardDict[id];
     if (debug) console.log('> card ', card);
 
-    var cardId = card.expansion + '_' + card.card_number;
+    var cardId = card.expansion + '_' + parseInt(card.card_number, 10);
+    if (debug) console.log('> cardId ', cardId);
 
     var rating = ratings[cardId].Rating;
     var awp = ratings[cardId].Awp;
