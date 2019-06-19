@@ -1243,7 +1243,7 @@ your hand.”
 This section provides answers to a number of common questions that
 are asked about the game. These questions are presented in a “Question and Answer” format, with the newest questions at the end.
 
-### My opponent has 14 Æmber in their pool and I have 0 in mine. At the start of my turn I select Shadows as the active house and play the card Bait and Switch (CoTA 267). How many times does Bait and Switch trigger?
+#### My opponent has 14 Æmber in their pool and I have 0 in mine. At the start of my turn I select Shadows as the active house and play the card Bait and Switch (CoTA 267). How many times does Bait and Switch trigger?
 In this situation, Bait and Switch’s effect will be triggered 2 times. When
 the effect is triggered for the first time time it checks if your opponent
 has more Æmber than you, and if they do it will repeat the first effect
