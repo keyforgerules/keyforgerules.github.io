@@ -1251,21 +1251,6 @@ again, stealing another Æmber. However, since the card says to repeat
 the preceding effect and not the whole effect it can only ever trigger
 twice. 
 
-#### My opponent has 14 Æmber in their pool and I have 0 in mine. At the start of my turn I select Shadows as the active house and play the card Bait and Switch (CoTA 267). How many times does Bait and Switch trigger?
-
-In this situation, Bait and Switch’s effect will be triggered 7 times. Each
-time the effect is triggered it will check if your opponent still has more
-Æmber than you, and if they do it will trigger again. So after the first
-time the effect triggers you will have 1 Æmber and your opponent will
-have 13, the second time you will have 2 Æmber and your opponent
-will have 12, then 3 and 11, 4 and 10, 5 and 9, 6 and 8, then finally 7 and 7. Once both players have the same amount of Æmber when the effect
-checks if your opponent has more Æmber than you the effect will see
-that your opponent does not and the card effect will not trigger again.
-
-**Note:** Repeating an effect does not interact with the Rule of Six (see
-page 7), as the Rule of Six only applies to playing or using cards, not
-triggering their effect multiple times.
-
 #### Its the first turn of the game and I am going first. I choose house Logos to be the active house and play the card Phase Shift (CoTA 117). Does this allow me to play another card this turn even though the First Turn Rule (see page 5) is in effect?
 
 Playing Phase Shift will allow you to play another card from your hand this turn, since the First Turn Rule can be modified by card effects.
