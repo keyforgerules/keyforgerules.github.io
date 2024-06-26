@@ -1,0 +1,4 @@
+plugins:
+  - jemoji
+emoji:
+  src: "./img/"
